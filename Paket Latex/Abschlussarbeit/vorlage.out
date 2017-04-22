@@ -1,0 +1,16 @@
+\BOOKMARK [0][-]{chapter.1}{Kurzfassung}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Einleitung}{}% 2
+\BOOKMARK [0][-]{chapter.3}{Das Verfahren in der Theorie}{}% 3
+\BOOKMARK [1][-]{section.3.1}{Das mathematische Modell einer Kamera}{chapter.3}% 4
+\BOOKMARK [2][-]{subsection.3.1.1}{Die Kamera Kalibrierung}{section.3.1}% 5
+\BOOKMARK [1][-]{section.3.2}{Der Lichschnitt}{chapter.3}% 6
+\BOOKMARK [0][-]{chapter.4}{Implementierung}{}% 7
+\BOOKMARK [1][-]{section.4.1}{Scanner Konstruktion}{chapter.4}% 8
+\BOOKMARK [1][-]{section.4.2}{Der Scan-Vorgang}{chapter.4}% 9
+\BOOKMARK [2][-]{subsection.4.2.1}{Datenerhebung}{section.4.2}% 10
+\BOOKMARK [2][-]{subsection.4.2.2}{Kalibrierung und weitere Vorbereitungen}{section.4.2}% 11
+\BOOKMARK [2][-]{subsection.4.2.3}{Datenverarbeitung}{section.4.2}% 12
+\BOOKMARK [0][-]{chapter.5}{Ergebnisse}{}% 13
+\BOOKMARK [1][-]{section.5.1}{Laserlinienbestimmung}{chapter.5}% 14
+\BOOKMARK [1][-]{section.5.2}{Messgenauigkeit}{chapter.5}% 15
+\BOOKMARK [0][-]{chapter.6}{Fazit}{}% 16
