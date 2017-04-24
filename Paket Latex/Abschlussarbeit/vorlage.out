@@ -6,10 +6,12 @@
 \BOOKMARK [0][-]{chapter.3}{Implementierung}{}% 6
 \BOOKMARK [1][-]{section.3.1}{Scanner Konstruktion}{chapter.3}% 7
 \BOOKMARK [1][-]{section.3.2}{Der Scanvorgang}{chapter.3}% 8
-\BOOKMARK [2][-]{subsection.3.2.1}{Datenerhebung}{section.3.2}% 9
-\BOOKMARK [2][-]{subsection.3.2.2}{Kalibrierung und weitere Vorbereitungen}{section.3.2}% 10
-\BOOKMARK [2][-]{subsection.3.2.3}{Datenverarbeitung}{section.3.2}% 11
-\BOOKMARK [0][-]{chapter.4}{Ergebnisse}{}% 12
-\BOOKMARK [1][-]{section.4.1}{Laserlinienbestimmung}{chapter.4}% 13
-\BOOKMARK [1][-]{section.4.2}{Messgenauigkeit}{chapter.4}% 14
-\BOOKMARK [0][-]{chapter.5}{Fazit}{}% 15
+\BOOKMARK [2][-]{subsection.3.2.1}{Kalibrierung der internen Kameraparameter}{section.3.2}% 9
+\BOOKMARK [2][-]{subsection.3.2.2}{Datenerhebung}{section.3.2}% 10
+\BOOKMARK [2][-]{subsection.3.2.3}{Farbkalibrierung}{section.3.2}% 11
+\BOOKMARK [2][-]{subsection.3.2.4}{Kalibrierung der externen Kameraparameter}{section.3.2}% 12
+\BOOKMARK [2][-]{subsection.3.2.5}{Bestimmung der Laserlinie}{section.3.2}% 13
+\BOOKMARK [0][-]{chapter.4}{Ergebnisse}{}% 14
+\BOOKMARK [1][-]{section.4.1}{Laserlinienbestimmung}{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.2}{Messgenauigkeit}{chapter.4}% 16
+\BOOKMARK [0][-]{chapter.5}{Fazit}{}% 17

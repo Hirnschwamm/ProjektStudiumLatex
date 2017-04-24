@@ -1,6 +1,7 @@
 \chapter{Implementierung}
 
 \section{Scanner Konstruktion}
+\label{sec:scannerKonstruktion}
 Um das Lichtschnittverfahren angemessen umsetzen zu können, müssen zuerst brauchbare Daten erhoben werden. Mit Daten sind in diesem Kontext die Fotografien gemeint, auf denen das zu vermessende Objekt inklusive der projizierten Laserlinie zu sehen ist. Um diese Reihe von Bildern zu erstellen, ist eine Vorrichtung von Nöten, die es ermöglicht, die Webcam und den Laser so zu fixieren, dass das zu vermessene Objekt mit Leichtigkeit fotografierbar ist. Zusätzlich müssen sowohl der Laser als auch die Kamera so beweglich sein, dass das zu vermessene Objekt in kontrollierten Abständen mit dem Laser abgetastet werden kann, sich das räumliche Verhältnis zwischen Webcam und Laser sich jedoch nicht verändert. 
 
 Für das vorliegende Projekt wurde versucht, dies unter Berücksichtigung einer einfachen und günstigen Konstruktion zu realisieren. Die in dieser Ausarbeitung vorgeschlagene Lösung setzt darauf, Kamera und Laser übereinander auf einer Pappelholzplatte zu fixieren. Diese Holzplatte befindet sich auf zum Boden senkrecht befindlichen Schlaufen aus stabilem Gurt, welche um zwei PVC-Röhren gespannt sind. Besagte PVC-Röhren ruhen in horizontaler Lage parallel zum Boden in zwei Holzstreben, welche wiederrum senkrecht auf einer Basis aus dünnem Pappelholz geklebt sind. Die Gesamtkonstruktion kann in Abb. \ref{fig:scanner1} und \ref{fig:scanner2} und betrachtet werden.
@@ -8,17 +9,20 @@ Für das vorliegende Projekt wurde versucht, dies unter Berücksichtigung einer 
 \begin{figure}
 \centering
 \begin{minipage}{0.45\textwidth}
-\centering \includegraphics[width=\textwidth]{images/Scanner1.jpg}\label{fig:scanner1}
+\centering \includegraphics[width=\textwidth]{images/Scanner1.jpg}
+\label{fig:scanner1}
 \caption{Frontal Ansicht}
 \end{minipage}
 \begin{minipage}{0.45\textwidth}
-\centering\includegraphics[width=\textwidth, angle = -90]{images/Scanner2.jpg}\label{fig:scanner2}
+\centering\includegraphics[width=\textwidth, angle = -90]{images/Scanner2.jpg}
+\label{fig:scanner2}
 \caption{Seitliche Ansicht}
 \end{minipage}
 \end{figure}
 
 \begin{figure}
-\centering \includegraphics[width=0.5\textwidth, angle = -90]{images/Scanner3.jpg}\label{fig:scanner3}
+\centering \includegraphics[width=0.5\textwidth, angle = -90]{images/Scanner3.jpg}
+\label{fig:scanner3}
 \caption{Nahaufnahme der Millimeter-Anzeige}
 \end{figure}
 
@@ -46,23 +50,34 @@ Der Gesamtaufbau setzt vor allem auf eine praktikable Lösung, die problemlos na
 
 
 \section{Der Scanvorgang}
-\begin{figure}
-\centering \includegraphics[width=1.0\textwidth]{images/ScannerVerfahren.pdf}\label{fig:scanVorgang}
+\label{sec:scanvorgang}
+Um ein zu vermessendes Objekt in eine Reihe von abgetasteten Weltkoordinaten umzuwandeln wird in der vorliegenden Implementierung ein Prozess von verschiedenen Stufen vorgeschlagen. Der Gesamtprozess ist schematisch in Abb. \ref{fig:scanVorgang} dargestellt. Die einzelnen Stufen des Prozesses sind dabei nach der Abhängigkeit ihrer Ergebnisse und daraus folgen der Anzahl an nötigen Wiederholungen sortiert. Mit anderen Worten: Die Aktionen, die nur nur einmal ausgeführt werden müssen um mehrere Scanvorgänge zu ausführen zu können werden zuerst vorgenommen, während Aktionen die beispielsweise pro aufgenommenen Bild ausgeführt werden müssen, am Schluss folgen. Dies ist für denjenigen, der den Scanvorgang durchführt, eine geeignete Reihenfolge, da so Teilergebnisse für mehrere Scanprozesse wiederverwendet werden können und bei erfolglosen Stufen der Gesamtprozess nicht von neu angestoßen werden muss. \newline
+Die Kalibrierung der internen Kameraparameter beispielsweise ist unabhängig von den anderen Umständen des eigentlichen Scanvorgangs und muss nicht für jede Messreihe erneut stattfinden, sondern lediglich wenn sich die Fokus-Einstellung der Kamera ändert. In der darauf folgenden Stufe des Scannens werden die nötigen Fotografien aufgenommen, was im Folgenden als Datenerhebung bezeichnet wird. Anschließend werden anhand einiger weniger dieser Bilder weitere Kalibrierungen vorgenommen, welche allerdings für den Rest des Datensatzes persistent sind und nur von Scandurchlauf zu Scandurchlauf wiederholt werden müssen. Zuletzt werden auf allen Bildern des Datensatzes die beiden Schritte der Laserlinienerkennung und Weltkoordinatenberechnung ausgeführt, welche für jedes Bild des Datensatzes andere Ergebnisse liefern und damit am Ende der Pipeline stehen. Die Weltkoordinaten, die als Resultat eines jeden Bildes berechnet werden, werden gesammelt und stehen als Punkte-Wolke zu weiteren Verarbeitung zur Verfügung. Im Folgenden werden nun die einzelnen Stufen des Scanvorgangs einzeln näher erläutert.
+
+
+\begin{wrapfigure}{L}{0.45\textwidth}
+\centering 
+\includegraphics[width=0.45\textwidth]{images/ScannerVerfahren.pdf}
+\label{fig:scanVorgang}
 \caption{Der schematische Ablauf des Scanvorgangs}
-\end{figure}
+\end{wrapfigure}
+\leavevmode
+
+\subsection{Kalibrierung der internen Kameraparameter}
+In Abschnitt \ref{subsec:KameraKalibrierungTheorie} wurde die Theorie hinter der Kamerakalibrierung bereits erläutert, daher soll das Verfahren an dieser Stelle lediglich aus praktischer Sicht betrachtet werden. Aus Gründen, welche in \ref{fig:scanVorgang} dargelegt wurden, ist der Kamerakalibreirungsprozess in zwei zeitlich voneinander getrennte Teile gespalten. Am Anfang steht hierbei die Bestimmung der internen Kameraparamtern, insbesondere der internen Kameramatrix. Um diese abzuschätzen wurde auf die in Matlab integrierte Kamerakalibrirungsapp zurückgegriffen, welche aus einem Set von vorher aufgenommenen Bildern die Kameraparameter (wie in \ref{subsec:KameraKalibrierungTheorie} beschrieben) schätzt. Dabei werden eine Reihe von Kalibrierungsbilder, welche vorher aufgenommen wurden, in die App importiert und anschließend von jener verarbeitet. Bevor die nun geschätzte interne Kameramatrix als eigenständige Datei exportiert werden kann, sollten die sogenannten Reprojection Errors begutachtet werden. Diese stellen eine Metrik dar, welche besagt wie erfolgreich die Kalibrierung verlaufen ist und ergibt sich aus dem Abstand zwischen den im Bild erkannten Schachbrett-Punkten und den auf das Bild zurück projizierten korrespondierenden Weltkoordinaten (mehr dazu auch bei !QUELLE! und !QUELLE!). Bei den dieser Ausarbeitung mitgelieferten Kalibrierungsbilder wurde ein durchschnittlicher Reprojection Error von !WERT! erreicht, jedoch gilt laut einer Faustregel aus !QUELLE! jeder durchschnittliche Fehler von unter einem Pixel als akzeptabel. Am Ende der Kalibrierung muss die interne Kameramatrix gespeichert und für die weiteren Schritte hinterlegt werden.  
 
 \subsection{Datenerhebung}
+In der Phase der Datenerhebung werden die Fotografien des zu vermessenen Objektes aufgenommen. Dabei kommt die Konstruktion zum Tragen die in Kapitel \ref{sec:scannerKonstruktion} erläutert wurde. Zuerst muss die Messplatte in ihre Startposition gebracht werden, das heißt die Millimeter-Anzeige muss einen Abstand von 0 Millimetern anzeigen (vgl. Abb. \ref{fig:scanner3}. Anschließend muss das Schachbrettmuster, das auch bei der Kalibrierung der internen Kameraparametern zum Einsatz kam, so platziert werden, dass zum einen die Kamera alle Quadrate des Musters erkennen kann und zum anderen das zu vermessene Objekt so aufgestellt werden kann, dass die Laserlinie auf die unterste Peripherie des Objektes projiziert werden kann, also da, wo die Messung beginnen soll. Aufgrund der Konstruktion des Scanners muss das Schachbrettmuster dafür auf einer Erhöhung von ca. 9 cm ruhen. Für das erste Bild ist es jedoch wichtig, eine Aufnahme des Musters zu machen, auf dem das zu vermessene Objekt nicht abgebildet ist. Dieses Bild wird für die Kalibrierung der externen Kameraparameter benötigt, welche im kommenden Abschnitt \ref{subsec:externeKalibrierung} beschrieben ist. Von nun an ist es für den Rest des Scanvorgangs nicht mehr erlaubt, den Neigungswinkel der Kamera zu ändern.
+Anschließend wird das zu vermessene Objekt so auf dem Schachbrettmuster platziert, dass die auf das Objekt projizierte Laserlinie in ihrer ganzen Länge zu erkennen ist und es wird eine Aufnahme gemacht. Nun muss die Messplatte mithilfe der Millimeter-Anzeige um einen vorher festgelegten Millimeter-Betrag nach oben bewegt werden. Der festgelegte Betrag muss für die spätere Berechnung der Weltkoordinaten festgehalten werden. Anschließend wird die nächste Fotografie geschossen. Dabei ist zu beachten, dass sich zwischen den Bildern nichts anderes als die Messplatte bewegen sollte und der vorher festgelegte Abstand so genau wie möglich eingehalten werden sollte. In dieser Manier wird nun das gesamte Objekt mit dem Laser abgetastet und je nach dem gewählten Abstand ergeben sich so mehr oder weniger Bilder, die für die folgenden Phasen abgespeichert werden.      
+
+\subsection{Farbkalibrierung}
 TODO
 
-\subsection{Kalibrierung und weitere Vorbereitungen}
+\subsection{Kalibrierung der externen Kameraparameter}
+\label{subsec:externeKalibrierung}
 TODO
 
-\subsection{Datenverarbeitung}
-TODO
-
-\subsubsection{Lokalisierung der Laserlinie}
+\subsection{Bestimmung der Laserlinie}
 TODO
 
 \subsubsection{Berechnung der Weltkoordinaten}
-TODO
-

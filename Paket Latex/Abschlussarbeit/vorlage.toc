@@ -8,12 +8,13 @@
 \contentsline {chapter}{\numberline {3}Implementierung}{3}{chapter.3}
 \contentsline {section}{\numberline {3.1}Scanner Konstruktion}{3}{section.3.1}
 \contentsline {section}{\numberline {3.2}Der Scanvorgang}{5}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Datenerhebung}{5}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Kalibrierung und weitere Vorbereitungen}{5}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Datenverarbeitung}{5}{subsection.3.2.3}
-\contentsline {subsubsection}{Lokalisierung der Laserlinie}{5}{section*.6}
-\contentsline {subsubsection}{Berechnung der Weltkoordinaten}{5}{section*.7}
-\contentsline {chapter}{\numberline {4}Ergebnisse}{6}{chapter.4}
-\contentsline {section}{\numberline {4.1}Laserlinienbestimmung}{6}{section.4.1}
-\contentsline {section}{\numberline {4.2}Messgenauigkeit}{6}{section.4.2}
-\contentsline {chapter}{\numberline {5}Fazit}{7}{chapter.5}
+\contentsline {subsection}{\numberline {3.2.1}Kalibrierung der internen Kameraparameter}{6}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Datenerhebung}{6}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Farbkalibrierung}{7}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Kalibrierung der externen Kameraparameter}{7}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}Bestimmung der Laserlinie}{7}{subsection.3.2.5}
+\contentsline {subsubsection}{Berechnung der Weltkoordinaten}{7}{section*.6}
+\contentsline {chapter}{\numberline {4}Ergebnisse}{8}{chapter.4}
+\contentsline {section}{\numberline {4.1}Laserlinienbestimmung}{8}{section.4.1}
+\contentsline {section}{\numberline {4.2}Messgenauigkeit}{8}{section.4.2}
+\contentsline {chapter}{\numberline {5}Fazit}{9}{chapter.5}
