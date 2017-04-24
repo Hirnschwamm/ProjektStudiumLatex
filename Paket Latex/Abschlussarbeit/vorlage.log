@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.5.3)  23 APR 2017 19:10
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.5.3)  24 APR 2017 19:58
 entering extended mode
 **vorlage.tex
 ("C:\Users\David\Documents\Hochschule\Projektstudium\latex\Paket Latex\Abschlussarbeit\vorlage.tex"
@@ -865,33 +865,37 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \@indexfile=\write3
 
 Writing index file vorlage.idx
+("C:\Program Files\MiKTeX 2.9\tex\latex\eurosym\eurosym.sty"
+Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
+\@eurobox=\box64
+)
 ("C:\Users\David\Documents\Hochschule\Projektstudium\latex\Paket Latex\Abschlussarbeit\vorlage.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 74.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 74.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 75.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 75.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    ... okay on input line 75.
  ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count139
 \scratchdimen=\dimen168
-\scratchbox=\box64
+\scratchbox=\box65
 \nofMPsegments=\count140
 \nofMParguments=\count141
 \everyMPshowfont=\toks26
@@ -901,8 +905,8 @@ LaTeX Font Info:    ... okay on input line 74.
 \makeMPintoPDFobject=\count144
 \everyMPtoPDFconversion=\toks27
 )
-\AtBeginShipoutBox=\box65
-Package hyperref Info: Link coloring OFF on input line 74.
+\AtBeginShipoutBox=\box66
+Package hyperref Info: Link coloring OFF on input line 75.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -911,9 +915,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count145
 )
-LaTeX Info: Redefining \ref on input line 74.
-LaTeX Info: Redefining \pageref on input line 74.
-LaTeX Info: Redefining \nameref on input line 74.
+LaTeX Info: Redefining \ref on input line 75.
+LaTeX Info: Redefining \pageref on input line 75.
+LaTeX Info: Redefining \nameref on input line 75.
 
 ("C:\Users\David\Documents\Hochschule\Projektstudium\latex\Paket Latex\Abschlussarbeit\vorlage.out")
 ("C:\Users\David\Documents\Hochschule\Projektstudium\latex\Paket Latex\Abschlussarbeit\vorlage.out")
@@ -966,13 +970,13 @@ Package epstopdf Info: Source file: <Logo_Hauptcampus_Informatik.eps>
 (epstopdf)                    size: 15223 bytes
 (epstopdf)             Command: <epstopdf --outfile=Logo_Hauptcampus_Informatik-eps-converted-to.pdf Logo_Hauptcampus_In
 formatik.eps>
-(epstopdf)             \includegraphics on input line 97.
+(epstopdf)             \includegraphics on input line 98.
 Package epstopdf Info: Output file is already uptodate.
 <Logo_Hauptcampus_Informatik-eps-converted-to.pdf, id=63, 812.03375pt x 157.58875pt>
 File: Logo_Hauptcampus_Informatik-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Logo_Hauptcampus_Informatik-eps-converted-to.pdf>
-Package pdftex.def Info: Logo_Hauptcampus_Informatik-eps-converted-to.pdf used on input line 97.
+Package pdftex.def Info: Logo_Hauptcampus_Informatik-eps-converted-to.pdf used on input line 98.
 (pdftex.def)             Requested size: 209.12683pt x 40.58255pt.
 
 
@@ -983,7 +987,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.97   \mytitlepage
+l.98   \mytitlepage
                    
 You need to provide a definition with \DeclareInputText 
 or \DeclareInputMath before using this key.
@@ -1101,30 +1105,38 @@ Kapitel 2.
 
 ]
 Kapitel 3.
-<images/Scanner1.jpg, id=124, 3276.24pt x 2457.18pt>
+<images/Scanner1.jpg, id=126, 3276.24pt x 2457.18pt>
 File: images/Scanner1.jpg Graphic file (type jpg)
  <use images/Scanner1.jpg>
 Package pdftex.def Info: images/Scanner1.jpg used on input line 11.
 (pdftex.def)             Requested size: 188.21288pt x 141.12553pt.
 
-<images/Scanner2.jpg, id=125, 3276.24pt x 2457.18pt>
+<images/Scanner2.jpg, id=127, 3276.24pt x 2457.18pt>
 File: images/Scanner2.jpg Graphic file (type jpg)
  <use images/Scanner2.jpg>
 Package pdftex.def Info: images/Scanner2.jpg used on input line 15.
 (pdftex.def)             Requested size: 188.21288pt x 141.12553pt.
+
+<images/Scanner3.jpg, id=128, 3276.24pt x 2457.18pt>
+File: images/Scanner3.jpg Graphic file (type jpg)
+ <use images/Scanner3.jpg>
+Package pdftex.def Info: images/Scanner3.jpg used on input line 21.
+(pdftex.def)             Requested size: 209.12683pt x 156.8353pt.
  [3
 
 
-]
-<images/Scanner3.jpg, id=132, 3276.24pt x 2457.18pt>
-File: images/Scanner3.jpg Graphic file (type jpg)
- <use images/Scanner3.jpg>
-Package pdftex.def Info: images/Scanner3.jpg used on input line 25.
-(pdftex.def)             Requested size: 209.12683pt x 156.8353pt.
- [4 <C:/Users/David/Documents/Hochschule/Projektstudium/latex/Paket Latex/Abschlussarbeit/images/Scanner1.jpg> <C:/Users
-/David/Documents/Hochschule/Projektstudium/latex/Paket Latex/Abschlussarbeit/images/Scanner2.jpg> <C:/Users/David/Docume
-nts/Hochschule/Projektstudium/latex/Paket Latex/Abschlussarbeit/images/Scanner3.jpg>])
-("C:\Users\David\Documents\Hochschule\Projektstudium\latex\Paket Latex\Abschlussarbeit\chapters/Ergebnisse.tex" [5]
+] [4 <C:/Users/David/Documents/Hochschule/Projektstudium/latex/Paket Latex/Abschlussarbeit/images/Scanner1.jpg> <C:/User
+s/David/Documents/Hochschule/Projektstudium/latex/Paket Latex/Abschlussarbeit/images/Scanner2.jpg> <C:/Users/David/Docum
+ents/Hochschule/Projektstudium/latex/Paket Latex/Abschlussarbeit/images/Scanner3.jpg>] <images/ScannerVerfahren.pdf, id=
+142, 1035.87pt x 133.49875pt>
+File: images/ScannerVerfahren.pdf Graphic file (type pdf)
+
+<use images/ScannerVerfahren.pdf>
+Package pdftex.def Info: images/ScannerVerfahren.pdf used on input line 50.
+(pdftex.def)             Requested size: 418.25368pt x 53.90372pt.
+)
+("C:\Users\David\Documents\Hochschule\Projektstudium\latex\Paket Latex\Abschlussarbeit\chapters/Ergebnisse.tex" [5 <C:/U
+sers/David/Documents/Hochschule/Projektstudium/latex/Paket Latex/Abschlussarbeit/images/ScannerVerfahren.pdf>]
 Kapitel 4.
 ) ("C:\Users\David\Documents\Hochschule\Projektstudium\latex\Paket Latex\Abschlussarbeit\chapters/Fazit.tex" [6
 
@@ -1135,30 +1147,30 @@ Kapitel 5.
 
 
 ] ("C:\Users\David\Documents\Hochschule\Projektstudium\latex\Paket Latex\Abschlussarbeit\vorlage.ind")
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 131.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 131.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 132.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 132.
 
 ("C:\Users\David\Documents\Hochschule\Projektstudium\latex\Paket Latex\Abschlussarbeit\vorlage.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 131.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 131.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 132.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
 Package rerunfilecheck Info: File `vorlage.out' has not changed.
-(rerunfilecheck)             Checksum: 559709C99C9EB9C95175DA7C8B00FEB9;968.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 131.
+(rerunfilecheck)             Checksum: 3D3F1D94495F2BA382080A9F5FE2FD56;967.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 132.
  ) 
 Here is how much of TeX's memory you used:
- 10901 strings out of 493921
- 156062 string characters out of 3147283
- 274563 words of memory out of 3000000
- 13945 multiletter control sequences out of 15000+200000
- 10449 words of font info for 39 fonts, out of 3000000 for 9000
+ 10975 strings out of 493921
+ 157176 string characters out of 3147283
+ 275985 words of memory out of 3000000
+ 14011 multiletter control sequences out of 15000+200000
+ 10566 words of font info for 40 fonts, out of 3000000 for 9000
  846 hyphenation exceptions out of 8191
- 42i,10n,32p,812b,449s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,10n,32p,901b,447s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
 /amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on vorlage.pdf (11 pages, 6152393 bytes).
+9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/eurosym/feymr10.pfb>
+Output written on vorlage.pdf (11 pages, 6245500 bytes).
 PDF statistics:
- 178 PDF objects out of 1000 (max. 8388607)
- 37 named destinations out of 1000 (max. 500000)
- 141 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 214 PDF objects out of 1000 (max. 8388607)
+ 39 named destinations out of 1000 (max. 500000)
+ 146 words of extra memory for PDF output out of 10000 (max. 10000000)
 
