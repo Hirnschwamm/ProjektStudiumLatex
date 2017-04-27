@@ -13,8 +13,9 @@
 \contentsline {subsection}{\numberline {3.2.3}Farbkalibrierung}{7}{subsection.3.2.3}
 \contentsline {subsection}{\numberline {3.2.4}Kalibrierung der externen Kameraparameter}{9}{subsection.3.2.4}
 \contentsline {subsection}{\numberline {3.2.5}Bestimmung der Laserlinie}{9}{subsection.3.2.5}
-\contentsline {subsubsection}{Berechnung der Weltkoordinaten}{9}{section*.6}
-\contentsline {chapter}{\numberline {4}Ergebnisse}{10}{chapter.4}
-\contentsline {section}{\numberline {4.1}Laserlinienbestimmung}{10}{section.4.1}
-\contentsline {section}{\numberline {4.2}Messgenauigkeit}{10}{section.4.2}
-\contentsline {chapter}{\numberline {5}Fazit}{11}{chapter.5}
+\contentsline {subsubsection}{Berechnung der Weltkoordinaten}{10}{section*.6}
+\contentsline {chapter}{\numberline {4}Ergebnisse}{11}{chapter.4}
+\contentsline {section}{\numberline {4.1}Laserlinienbestimmung}{11}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Segmentierung}{11}{subsection.4.1.1}
+\contentsline {section}{\numberline {4.2}Messgenauigkeit}{11}{section.4.2}
+\contentsline {chapter}{\numberline {5}Fazit}{12}{chapter.5}
