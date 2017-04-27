@@ -73,29 +73,35 @@ Anschließend wird das zu vermessene Objekt so auf dem Schachbrettmuster platzie
 \subsection{Farbkalibrierung}
 Die Laserlinie, welche auf das zu vermessene Objekt projiziert wird und die nötigen Informationen zur Bestimmung der Tiefeninformation der Weltkoordinaten liefert, muss in jedem aufgenommenen Bild neu lokalisiert werden (vgl. den kommenden Abschnitt \ref{subsec:LaserLinieBestimmung}). Der Ansatz, die Laserlinie im Bild zu bestimmen, basiert auf einem globalen Farbgrenzwert, mit dem die Laserlinie so gleichmäßig wie möglich segmentiert werden kann. Die Bestimmung und Speicherung dieses Grenzwertes geschieht in dem Schritt der Farbkalibrierung. Unter den Voraussetzungen dass 
 \begin{enumerate}
-\item die Laserlinie den höchsten Rot-Anteil im Bild besitzt und 
+\item die projizierte Laserlinie den höchsten Rot-Anteil im Bild besitzt und 
 \item sich die Licht- und Farbumgebung des Datensatzes zwischen Bildern nicht signifikant ändert
 \end{enumerate} 
 kann der globale Grenzwert anhand eines einzelnen Bildes aus dem Datensatz ermittelt werden, welcher im Anschluss für die restlichen Bilder der Messreihe wiederverwendet werden kann. \newline
-Die Farbkalibrierung soll also den Grenzwert liefern, mit der die spätere Lokalisierung der Laserlinie in Pixelkoordinaten am besten funktioniert. Gearbeitet wird dabei in dem YCbCr-Farbraum, da dieser es auf eine einfache Weise erlaubt, Farbinformationen von Helligkeitsinformationen zu trennen und den Rotanteil dennoch in einem einzelnen Kanal (dem Cr-Kanal) zu isolieren. Der Ansatz, den die vorliegende Implementierung verfolgt, ist, den Benutzer einmalig die Laserlinie mittels eines Splines nachzeichnen zu lassen, und diesen "Goldstandard" automatisch unter Anwendung des in \ref{subsec:LaserLinieBestimmung} beschriebenen Verfahrens und steigender Cr-Grenzwerte mit vielen extrahierten Laserlinien zu vergleichen. Der Cr-Grenzwert, mit dem die Laserlinie extrahiert wurde, die dem Goldstandard am nächsten kommt, ist der optimale Grenzwert und wird für die kommenden Laserlinienlokalisierungen abgespeichert.\newline
+Die Farbkalibrierung soll also den Grenzwert liefern, mit der die spätere Lokalisierung der Laserlinie in Pixelkoordinaten am besten funktioniert. Gearbeitet wird dabei in dem YCbCr-Farbraum, da dieser es auf eine einfache Weise erlaubt, Farbinformationen von Helligkeitsinformationen zu trennen und den Rotanteil dennoch in einem einzelnen Kanal (dem Cr-Kanal) zu isolieren. Der Ansatz, den die vorliegende Implementierung verfolgt, ist, den Benutzer einmalig die Laserlinie mittels eines Splines nachzeichnen zu lassen, und diesen "Goldstandard'' automatisch unter Anwendung des in \ref{subsec:LaserLinieBestimmung} beschriebenen Verfahrens und steigender Cr-Grenzwerte mit vielen extrahierten Laserlinien zu vergleichen. Der Cr-Grenzwert, mit dem die Laserlinie extrahiert wurde, welche dem Goldstandard am nächsten kommt, ist der optimale Grenzwert und wird für die kommenden Laserlinienlokalisierungen abgespeichert.\bigbreak
 Um zu bestimmen, wie nah eine Pixellinie dem vom Nutzer bestimmten Spline und damit der Laserlinie kommt, ist eine Metrik in Form einer Distanzfunktion von Nöten. Pixellinien, bei der diese Distanzfunktion geringe Ergebnisse liefert, sind sich also 
 näher und somit ähnlicher als Linien, die große Werte liefern. Im Folgenden wird die verwendete Distanzfunktion definiert.\newline
-Sei die Breite des gegebenen Bildes in Pixeln definiert als \(w\) und die Höhe in Pixeln als \(h\). Die Spalten des Bildes  lassen sich also mit Elemente der Spaltenindex-Menge \(C = \lbrace 1, 2, 3, \ldots , w \rbrace\) indizieren, während  die Reihen sich analog mit Indizes der Reihenindex-Menge \(R = \lbrace 1, 2, 3, \ldots , h \rbrace\) bestimmen lassen. Die Position eines Pixels im Bild kann also mittels eines Tupels \(p = (c \in C, r \in R)\) bestimmen. Eine Pixellinie sei nun definiert als eine rechtseindeutige Relation \(L \in C \times R\), welche durch eine Menge von geordneten Tupeln gegeben ist.
-Die Rechtseindeutigkeit ist hierbei essentiell: Keiner Spalte des Bildes darf mehr als eine Reihe zugewiesen werden. Sei weiterhin mit \(D_{L}\) die Definitionsmenge und mit \(Z_{L}\) die Ziel- bzw. Wertemenge einer Pixellinie \(L\) gemeint.\newline
+Sei die Breite des gegebenen Bildes in Pixeln definiert als \(w\) und die Höhe in Pixeln als \(h\). Die Spalten des Bildes  lassen sich also mit Elemente der Spaltenindex-Menge \(C = \lbrace 1, 2, 3, \ldots , w \rbrace\) indizieren, während  die Reihen sich analog mit Indizes der Reihenindex-Menge \(R = \lbrace 1, 2, 3, \ldots , h \rbrace\) bestimmen lassen. Die Position eines Pixels im Bild kann also mittels eines Tupels \(p = (c, r)\) mit \(c \in C\) und \(r \in R\) bestimmen. Eine Pixellinie sei nun definiert als eine rechtseindeutige Relation \(L \in C \times R\), welche durch eine Menge von geordneten Tupeln gegeben ist (Beispiel: \(L = \lbrace (1, 500), (2,501), (3, 500), (5, 499) \rbrace\).
+Die Rechtseindeutigkeit ist hierbei essentiell: Keiner Spalte des Bildes darf mehr als eine Reihe zugewiesen werden. Sei weiterhin mit \(Dom(L) = \lbrace c \in C \mid \exists r \in R: (c,r) \in L \rbrace\) die Definitionsmenge einer gegebenen Pixellinie \(L\) gemeint.\newline
 
 Seien nun zwei Pixellinien \(L_{1}\) und \(L_{2}\) gegeben. Die Menge
 \begin{equation}
-S_{1,2} = \lbrace abs(r_{1} - r_{2}) | \exists c \in C: (c, r_{1}) \in L_{1} \wedge (c, r_{1}) \in L_{2} \rbrace
+S_{1,2} = \lbrace abs(r_{1} - r_{2}) \mid \exists c \in C: (c, r_{1}) \in L_{1} \wedge (c, r_{2}) \in L_{2} \rbrace
 \end{equation}
 
 ist dann die Menge aller vertikalen Pixel-Abstände in Pixelspalten, in denen beide Pixellinien eine Pixelkoordinate besitzen. 
 
 \begin{equation}
-T_{1,2} = (D_{L_{1}} \cup D_{L_{2}}) \setminus (D_{L_{1}} \cap D_{L_{2}})   
+T_{1,2} = (Dom(L_{1}) \cup Dom(\L_{2})) \setminus (Dom(L_{1}) \cap Dom(L_{2}))   
 \end{equation}   
 
-ist die Menge aller Spaltenindizes beider Linien, die in der jeweils anderen Pixellinie auf keine Reihe abbilden.
+ist die Menge aller Spaltenindizes beider Linien, die in der jeweils anderen Pixellinie auf keine Reihe abbilden. Mittels dieser beiden Mengendefinitionen kann nun die Distanzfunktion \(D: (C \times R) \times (C \times R) \rightarrow \mathbb{R}\) definiert werden als:
 
+\begin{equation}
+D(L_{1}, L_{2}) = \frac{1}{\vert S_{1,2} \vert + \vert T_{1,2} \vert} \sum_{x \in S_{1, 2}}^{}x + ( \vert T_{1,2} \vert * h )
+\end{equation}
+
+\(D\) berechnet also das arithmetische Mittel aller vertikalen Pixelabstände der beiden Pixellinien. Dort wo die beiden Pixellinien sich horizontal überlappen, kann dafür der Pixelabstand genommen werden. In den Spalten, wo jedoch nur eine Linie definiert ist, kann kein direkter Abstand berechnet werden, daher wird ein "penalty''-Term in Form der Höhe des Bildes auf die Summe gerechnet. Diese ermöglicht, dass Pixellinien mit viel horizontaler Überschneidung näher bzw. in diesem Kontext ähnlicher zueinander eingestuft werden, als Linien, die horizontale Lücken aufweisen. Abb. !BILD! veranschaulicht die Metrik noch etwas deutlicher. \bigbreak
+Zusammengefasst läuft die Farbkalibrierung folgender Maßen ab: Zuerst wird der Benutzer dazu aufgefordert mittels einiger Punkte die horizontal verlaufende projizierte Laserlinie mittels eines Splines nachzuzeichnen. Anschließend wird der globale Cr-Grenzwert mit null initialisiert und die erste Laserlinie, die automatisch mit diesem Grenzwert lokalisiert wird (siehe dazu \ref{subsec:LaserLinieBestimmung}), wird mit der oben beschriebenen Metrik \(D\) die Ähnlichkeit der gefundenen Linie zum "Goldstandard'' bestimmt und der aktuelle Cr-Grenzwert als am besten passender Grenzwert vermerkt. Als nächstes wird der Grenzwert um einen bestimmten Wert erhöht und die Laserlinie wird wieder lokalisiert. Wenn diese Linie näher an der vom Benutzer festgelegten Pixellinie liegt, wird der neue, erhöhte Cr-Grenzwert als optimal vermerkt. Dieses Verfahren geht so lange weiter, bis für einen neuen Grenzwert keine Linie gefunden werden kann, die näher am Goldstandard liegt. Der gefundene Grenzwert wird nun für die folgenden Schritte des Scanvorgangs gespeichert.
 
 
 \subsection{Kalibrierung der externen Kameraparameter}
