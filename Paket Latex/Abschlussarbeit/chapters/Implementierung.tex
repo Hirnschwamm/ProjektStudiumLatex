@@ -131,3 +131,38 @@ L_{auto} = \lbrace (c,r) \in C \times R \mid r = LineRow(c) \wedge r > 0 \rbrace
 Da sich aus verschiedenen Gründen nicht immer zur Gänze darauf verlassen werden kann, dass die Segmentierung die Laserlinie in ihrer  Gesamtheit erfasst wird (vgl. Abschnitt \ref{subsec:segmentierung}), kann es sein, dass eine verzerrte Version der Laserlinie berechnet wird, wenn lediglich das segmentierte Bild als Basis für \(L_{auto}\) herangezogen wird. Daher wird der Prozess zweimal durchgeführt: Zuerst wird eine Annäherung \(L_{auto}\prime\) mit dem segmentierten Bild berechnet. Anschließend werden in jeder Pixelspalte der Linie in einem festgelegten Abstand oberhalb und unterhalb des aktuellen Reihenindizes wieder "`eingeblendet'', das heißt aus dem ursprünglichen, unsegmentierten Bild herangezogen. Außerhalb dieses Bereichs bleiben die Pixel jedoch geschwärzt (siehe Abb. !BILD!). Mit diesen Pixelinformationen wird dann \(L_{auto}\) berechnet, welches die Bildkoordinaten der projizierten Laserlinie darstellt. Im folgenden Verlauf des Scanvorgangs werden diese Bildkoordinaten in Weltkoordinaten umgewandelt.
 
 \subsubsection{Berechnung der Weltkoordinaten}
+Am Ende des Scanvorgangs steht die Berechnung der Weltkoordinaten. Hier werden für jedes aufgenommene Bild die Bildkoordinaten der in Schritt \ref{subsec:LaserLinieBestimmung} bestimmten Pixellinie \(L_{auto}\) wie folgt umgerechnet. Sei 
+\begin{equation}
+\vec{p_{Bild}} = \left(\begin{array}{c}x\\y\end{array}\right)
+\end{equation} 
+ein als Vektor interpretierter Punkt \((x, y)\) in \(L_{auto}\). Der Punkt kann mit der internen Kameramatrix \(K\) in das Kamerakoordinatensystem umgewandelt werden. Der Tiefenanteil, also die Z-Koordinate, wird hierbei noch nicht berechnet, sondern erst einmal auf 1 gesetzt:
+\begin{equation}
+\vec{p_{Kamera}}  = K * \left(\begin{array}{c}x\\y\\1\end{array}\right)
+\end{equation}
+Sei nun \(T\) und \(R\) die Kameratranslation und -rotation aus Abschnitt \ref{subsec:externeKalibrierung}. Dann kann eine Gerade \(g\) definiert werden, die durch den Ortsvektor \(\vec{o_{g}}\) als das Zentrum der Kamera in Weltkoordinaten und als Richtungsvektor \(\vec{d_{g}}\) den im Weltkoordinatensystem ausgedrückten Vektor \(\vec{p_{Kamera}}\) gegeben ist:
+\begin{equation}
+\vec{o_{g}} = R^{-1} * T
+\end{equation}
+\begin{equation}
+\vec{d_{g}} = R^{-1} * \vec{p_{Kamera}}
+\end{equation}
+\begin{equation}
+g = \vec{o_{g}} + \lambda * \vec{d_{g}}
+\end{equation}
+Der gesuchte Punkt \(\vec{p_{Welt}}\) liegt auf dieser Geraden. Um nun zu berechnen, wo auf der Geraden der Punkt liegt, kann der Schnittpunkt von \(g\) mit der Ebene \(e\), die durch den Laser aufgespannt wird, berechnet werden. Der Ortsvektor \(\vec{o_{e}}\) von \(e\) ist durch den Aufbau des Scanners gegeben: Er befindet sich 120 mm in positiver Z-Richtung unter dem Zentrum der Kamera. Der Normalenvektor \(\vec{n_{e}}\) lässt sich ebenfalls aus der Scanner-Konstruktion bestimmen; dieser ist identisch mit der Z-Achse.
+\begin{equation}
+\vec{o_{e}} = \vec{o_{g}} + \left(\begin{array}{c}0\\0\\120\end{array}\right)
+\end{equation}
+\begin{equation}
+\vec{n_{e}} = \left(\begin{array}{c}0\\0\\1\end{array}\right)
+\end{equation}
+\begin{equation}
+\vec{n_{e}} \cdot (\vec{x} - \vec{o_{e}}) = 0
+\end{equation}
+Der Schnittpunkt \(\vec{p_{Welt}}\) ergibt sich dann aus:
+\begin{equation}
+\lambda = \frac{\vec{n_{e}} \cdot ( \vec{o_{e}} - \vec{o_{g}} ) }{ \vec{n_{e}} \cdot \vec{d_{g} }}
+\end{equation}
+Durch das Einsetzen des errechneten \(\lambda\) in \(g\) kann nun \(\vec{p_{Welt}}\) berechnet werden. \bigbreak
+Durch die oben beschriebene Berechnung kann nun für jeden Punkt in \(L_{auto}\) eine Weltkoordinate berechnet werden. Am Ende dieses Prozesses muss nun noch der Z-Achsen-offset, der sich aus der Verschiebung des Scanner-Apparats zwischen Bildaufnahmen ergibt, auf die Koordinaten addiert werden. So wird für jede Aufnahme der Messreihe ein Satz von Weltkoordinaten errechnet, welcher zu einer Punktemenge hinzugefügt wird. Sind alle Aufnahmen verarbeitet, ist der Scanvorgang abgeschlossen und das zu vermessene Objekt wurde erfolgreich abgebildet. Die resultierende Punktewolke steht dann zur weiteren Verarbeitung zur Verfügung.
+

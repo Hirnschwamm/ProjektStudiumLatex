@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.22)  27 APR 2017 23:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.22)  28 APR 2017 23:09
 entering extended mode
 **./vorlage.tex
 (vorlage.tex
@@ -1209,14 +1209,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--89
 
 LaTeX Warning: Command \L invalid in math mode on input line 98.
 
-[8] [9]) (chapters/Ergebnisse.tex [10]
+[8] [9] [10]) (chapters/Ergebnisse.tex [11] [12]
 Kapitel 4.
-) (chapters/Fazit.tex [11
+) (chapters/Fazit.tex [13
 
 
 ]
 Kapitel 5.
-) [12
+) [14
 
 
 ] (vorlage.ind)
@@ -1234,8 +1234,8 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 137.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 11105 strings out of 493333
- 159110 string characters out of 3139194
+ 11116 strings out of 493333
+ 159256 string characters out of 3139194
  291370 words of memory out of 3000000
  14349 multiletter control sequences out of 15000+200000
  10566 words of font info for 40 fonts, out of 3000000 for 9000
@@ -1254,9 +1254,9 @@ ts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9
 /Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program 
 Files/MiKTeX 2.9/fonts/type1/public/eurosym/feymr10.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on vorlage.pdf (16 pages, 6342526 bytes).
+Output written on vorlage.pdf (18 pages, 6354124 bytes).
 PDF statistics:
- 311 PDF objects out of 1000 (max. 8388607)
- 54 named destinations out of 1000 (max. 500000)
+ 332 PDF objects out of 1000 (max. 8388607)
+ 65 named destinations out of 1000 (max. 500000)
  170 words of extra memory for PDF output out of 10000 (max. 10000000)
 
