@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.22)  4 MAY 2017 00:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.22)  4 MAY 2017 00:31
 entering extended mode
 **./vorlage.tex
 (vorlage.tex
@@ -1175,46 +1175,46 @@ Kapitel 3.
 <images/Scanner1.jpg, id=136, 3276.24pt x 2457.18pt>
 File: images/Scanner1.jpg Graphic file (type jpg)
  <use images/Scanner1.jpg>
-Package pdftex.def Info: images/Scanner1.jpg used on input line 13.
+Package pdftex.def Info: images/Scanner1.jpg used on input line 11.
 (pdftex.def)             Requested size: 188.21288pt x 141.12553pt.
 
 <images/Scanner2.jpg, id=137, 3276.24pt x 2457.18pt>
 File: images/Scanner2.jpg Graphic file (type jpg)
  <use images/Scanner2.jpg>
-Package pdftex.def Info: images/Scanner2.jpg used on input line 18.
+Package pdftex.def Info: images/Scanner2.jpg used on input line 16.
 (pdftex.def)             Requested size: 188.21288pt x 141.12553pt.
 
 <images/Scanner3.jpg, id=138, 3276.24pt x 2457.18pt>
 File: images/Scanner3.jpg Graphic file (type jpg)
  <use images/Scanner3.jpg>
-Package pdftex.def Info: images/Scanner3.jpg used on input line 25.
+Package pdftex.def Info: images/Scanner3.jpg used on input line 23.
 (pdftex.def)             Requested size: 209.12683pt x 156.8353pt.
 
 [3
 
 
 ] [4 <./images/Scanner1.jpg> <./images/Scanner2.jpg> <./images/Scanner3.jpg>] <
-images/ScannerVerfahren.pdf, id=153, 297.11pt x 606.265pt>
+images/ScannerVerfahren.pdf, id=152, 297.11pt x 606.265pt>
 File: images/ScannerVerfahren.pdf Graphic file (type pdf)
 
 <use images/ScannerVerfahren.pdf>
-Package pdftex.def Info: images/ScannerVerfahren.pdf used on input line 61.
+Package pdftex.def Info: images/ScannerVerfahren.pdf used on input line 58.
 (pdftex.def)             Requested size: 188.21288pt x 384.06741pt.
  [5] [6 <./images/ScannerVerfahren.pdf>]
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 86--90
+Underfull \hbox (badness 10000) in paragraph at lines 83--87
 
  []
 
 
-LaTeX Warning: Command \L invalid in math mode on input line 99.
+LaTeX Warning: Command \L invalid in math mode on input line 96.
 
 [8] [9] [10]) (chapters/Ergebnisse.tex [11]
 Kapitel 4.
 [12
 
 
-]) (chapters/Fazit.tex [13] [14]
+] [13]) (chapters/Fazit.tex [14]
 Kapitel 5.
 ) [15
 
@@ -1236,7 +1236,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 137.
 Here is how much of TeX's memory you used:
  11119 strings out of 493333
  159293 string characters out of 3139194
- 292404 words of memory out of 3000000
+ 291404 words of memory out of 3000000
  14352 multiletter control sequences out of 15000+200000
  10566 words of font info for 40 fonts, out of 3000000 for 9000
  1146 hyphenation exceptions out of 8191
@@ -1254,7 +1254,7 @@ ts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9
 /Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program 
 Files/MiKTeX 2.9/fonts/type1/public/eurosym/feymr10.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on vorlage.pdf (19 pages, 6362076 bytes).
+Output written on vorlage.pdf (19 pages, 6362445 bytes).
 PDF statistics:
  337 PDF objects out of 1000 (max. 8388607)
  65 named destinations out of 1000 (max. 500000)
