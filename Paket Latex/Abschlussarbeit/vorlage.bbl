@@ -1,0 +1,14 @@
+\begin{thebibliography}{Mat}
+
+\bibitem[Mat]{Mathworks:17}
+{\em Single Camera Calibration App}.
+\newblock \\
+  {\url{https://de.mathworks.com/help/vision/ug/single-camera-calibrator-app.html}}.
+
+\bibitem[Sta]{StackOverflow:15}
+{\em Stack Overflow - How is the reprojection error calculated in Matlab's
+  triangulate function?}
+\newblock \\
+  {\url{http://stackoverflow.com/questions/29095349/how-is-the-reprojection-error-calculated-in-matlabs-triangulate-function-sadly}}.
+
+\end{thebibliography}

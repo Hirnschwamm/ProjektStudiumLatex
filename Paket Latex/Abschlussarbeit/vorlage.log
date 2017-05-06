@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.22)  4 MAY 2017 00:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.22)  6 MAY 2017 14:51
 entering extended mode
 **./vorlage.tex
 (vorlage.tex
@@ -1012,27 +1012,27 @@ LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
 ) (vorlage.aux)
 \openout1 = `vorlage.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 80.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 83.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 83.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    ... okay on input line 83.
 
 (C:\Users\David\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1049,7 +1049,7 @@ LaTeX Font Info:    ... okay on input line 80.
 \everyMPtoPDFconversion=\toks28
 )
 \AtBeginShipoutBox=\box67
-Package hyperref Info: Link coloring OFF on input line 80.
+Package hyperref Info: Link coloring OFF on input line 83.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -1058,9 +1058,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count146
 )
-LaTeX Info: Redefining \ref on input line 80.
-LaTeX Info: Redefining \pageref on input line 80.
-LaTeX Info: Redefining \nameref on input line 80.
+LaTeX Info: Redefining \ref on input line 83.
+LaTeX Info: Redefining \pageref on input line 83.
+LaTeX Info: Redefining \nameref on input line 83.
 
 (vorlage.out) (vorlage.out)
 \@outlinefile=\write4
@@ -1115,15 +1115,15 @@ to.pdf>
 (epstopdf)                    size: 15223 bytes
 (epstopdf)             Command: <epstopdf --outfile=Logo_Hauptcampus_Informatik
 -eps-converted-to.pdf Logo_Hauptcampus_Informatik.eps>
-(epstopdf)             \includegraphics on input line 103.
+(epstopdf)             \includegraphics on input line 106.
 Package epstopdf Info: Output file is already uptodate.
 
-<Logo_Hauptcampus_Informatik-eps-converted-to.pdf, id=71, 812.03375pt x 157.588
+<Logo_Hauptcampus_Informatik-eps-converted-to.pdf, id=75, 812.03375pt x 157.588
 75pt>
 File: Logo_Hauptcampus_Informatik-eps-converted-to.pdf Graphic file (type pdf)
  <use Logo_Hauptcampus_Informatik-eps-converted-to.pdf>
 Package pdftex.def Info: Logo_Hauptcampus_Informatik-eps-converted-to.pdf used 
-on input line 103.
+on input line 106.
 (pdftex.def)             Requested size: 209.12683pt x 40.58255pt.
  [1
 
@@ -1172,19 +1172,19 @@ Kapitel 2.
 
 ]
 Kapitel 3.
-<images/Scanner1.jpg, id=136, 3276.24pt x 2457.18pt>
+<images/Scanner1.jpg, id=157, 3276.24pt x 2457.18pt>
 File: images/Scanner1.jpg Graphic file (type jpg)
  <use images/Scanner1.jpg>
 Package pdftex.def Info: images/Scanner1.jpg used on input line 11.
 (pdftex.def)             Requested size: 188.21288pt x 141.12553pt.
 
-<images/Scanner2.jpg, id=137, 3276.24pt x 2457.18pt>
+<images/Scanner2.jpg, id=158, 3276.24pt x 2457.18pt>
 File: images/Scanner2.jpg Graphic file (type jpg)
  <use images/Scanner2.jpg>
 Package pdftex.def Info: images/Scanner2.jpg used on input line 16.
 (pdftex.def)             Requested size: 188.21288pt x 141.12553pt.
 
-<images/Scanner3.jpg, id=138, 3276.24pt x 2457.18pt>
+<images/Scanner3.jpg, id=159, 3276.24pt x 2457.18pt>
 File: images/Scanner3.jpg Graphic file (type jpg)
  <use images/Scanner3.jpg>
 Package pdftex.def Info: images/Scanner3.jpg used on input line 23.
@@ -1194,7 +1194,7 @@ Package pdftex.def Info: images/Scanner3.jpg used on input line 23.
 
 
 ] [4 <./images/Scanner1.jpg> <./images/Scanner2.jpg> <./images/Scanner3.jpg>] <
-images/ScannerVerfahren.pdf, id=152, 297.11pt x 606.265pt>
+images/ScannerVerfahren.pdf, id=173, 297.11pt x 606.265pt>
 File: images/ScannerVerfahren.pdf Graphic file (type pdf)
 
 <use images/ScannerVerfahren.pdf>
@@ -1202,45 +1202,77 @@ Package pdftex.def Info: images/ScannerVerfahren.pdf used on input line 58.
 (pdftex.def)             Requested size: 188.21288pt x 384.06741pt.
  [5] [6 <./images/ScannerVerfahren.pdf>]
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 83--87
+Underfull \hbox (badness 10000) in paragraph at lines 86--90
 
  []
 
 
-LaTeX Warning: Command \L invalid in math mode on input line 96.
+LaTeX Warning: Command \L invalid in math mode on input line 101.
 
-[8] [9] [10]) (chapters/Ergebnisse.tex [11]
+<images/LineDistance.pdf, id=231, 709.65125pt x 345.29pt>
+File: images/LineDistance.pdf Graphic file (type pdf)
+
+<use images/LineDistance.pdf>
+Package pdftex.def Info: images/LineDistance.pdf used on input line 113.
+(pdftex.def)             Requested size: 418.25368pt x 203.50858pt.
+ [8] [9 <./images/LineDistance.pdf>] [10] [11])
+(chapters/Ergebnisse.tex [12]
 Kapitel 4.
-[12
+[13
 
 
-] [13]) (chapters/Fazit.tex [14]
+] [14]) (chapters/Fazit.tex [15]
 Kapitel 5.
-) [15
+) [16
 
 
-] (vorlage.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 137.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 137.
+] (vorlage.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 4--7
+[]$\OT1/cmtt/m/n/12 https : / / de\OML/cmm/m/it/12 :\OT1/cmtt/m/n/12 mathworks\
+OML/cmm/m/it/12 :\OT1/cmtt/m/n/12 com / help / vision / ug / single -[] camera 
+-[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--13
+[]$\OT1/cmtt/m/n/12 http : / / stackoverflow\OML/cmm/m/it/12 :\OT1/cmtt/m/n/12 
+com / questions / 29095349 / how -[] is -[] the -[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--13
+\OT1/cmtt/m/n/12 reprojection -[] error -[] calculated -[] in -[] matlabs -[] t
+riangulate -[] function -[]
+ []
+
+) (vorlage.ind)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 140.
+ [17
+
+
+
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 140.
  (vorlage.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 137.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 137.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 140.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 140.
 Package rerunfilecheck Info: File `vorlage.out' has not changed.
-(rerunfilecheck)             Checksum: 4F7C743104F7561DF7ABDD7218595721;1144.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 137.
+(rerunfilecheck)             Checksum: 9142CCC8C9080E0108D5E087C930C2DF;1202.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 140.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 11119 strings out of 493333
- 159293 string characters out of 3139194
- 291404 words of memory out of 3000000
- 14352 multiletter control sequences out of 15000+200000
- 10566 words of font info for 40 fonts, out of 3000000 for 9000
+ 11144 strings out of 493333
+ 159674 string characters out of 3139194
+ 293134 words of memory out of 3000000
+ 14366 multiletter control sequences out of 15000+200000
+ 10735 words of font info for 41 fonts, out of 3000000 for 9000
  1146 hyphenation exceptions out of 8191
- 42i,10n,32p,2049b,3361s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,10n,32p,2049b,3356s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmb
 x12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Prog
@@ -1252,11 +1284,13 @@ lic/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:
 /Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/eurosym/feymr10.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on vorlage.pdf (19 pages, 6362445 bytes).
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/eurosym/feymr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/symbols/msbm10.pfb>
+Output written on vorlage.pdf (21 pages, 6422204 bytes).
 PDF statistics:
- 337 PDF objects out of 1000 (max. 8388607)
- 65 named destinations out of 1000 (max. 500000)
- 162 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 390 PDF objects out of 1000 (max. 8388607)
+ 71 named destinations out of 1000 (max. 500000)
+ 175 words of extra memory for PDF output out of 10000 (max. 10000000)
 

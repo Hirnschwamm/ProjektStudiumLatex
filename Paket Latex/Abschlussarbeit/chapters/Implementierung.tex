@@ -26,7 +26,7 @@ Um das Lichtschnittverfahren angemessen umsetzen zu können, müssen zuerst brau
 \end{figure}
 
 \bigbreak
-Die vom Laser aufgespannte Ebene befindet sich somit parallel zum Grund, während die Kamera schräg von oben auf das zu vermessene Objekt schaut. Mittels des Gurts kann die Holzplatte, auf der Kamera und Laser montiert sind, von unten nach oben bewegt werden, um das Objekt so abzutasten. Um zu kontrollieren, wie weit der Laser über das Objekt bewegt wurde, ist auf der Rückseite des Gurts eine Anzeige installiert, welche sich gen Boden bewegt sobald Laser und Kamera nach oben steigen. Die Anzeige zeigt an den Seiten der Holzstreben, an denen eine Skala in Millieter-Papier angebracht ist, wie weit sich die Holzplatte von der Startposition aus nach oben bewegt hat. In Abb. \ref{fig:scanner3} ist eine Nahaufnahme dieser Anzeige zu sehen. \bigbreak
+Die vom Laser aufgespannte Ebene befindet sich somit parallel zum Grund, während die Kamera schräg von oben auf das zu vermessene Objekt schaut. Mittels des Gurts kann die Holzplatte, auf der Kamera und Laser montiert sind, von unten nach oben bewegt werden, um das Objekt so abzutasten. Um zu kontrollieren, wie weit der Laser über das Objekt bewegt wurde, ist auf der Rückseite des Gurts eine Anzeige installiert, welche sich gen Boden bewegt sobald Laser und Kamera nach oben steigen. Die Anzeige zeigt an den Seiten der Holzstreben, an denen eine Skala in Millimeter-Papier angebracht ist, wie weit sich die Holzplatte von der Startposition aus nach oben bewegt hat. In Abb. \ref{fig:scanner3} ist eine Nahaufnahme dieser Anzeige zu sehen. \bigbreak
 Ein wesentlicher Vorteil der vorgenommenen Konstruktion liegt in der Parallelität der Laser-Ebene zum Boden. Auf diese Weise muss man sich bei der späteren Bildverarbeitung keine Sorgen machen, dass die Laser-Linie auf den Untergrund fällt, auf dem das zu vermessene Objekt ruht. Wäre dies der Fall, müssten bei der späteren Auslesung die Teile der Laser-Linie, die auf das Objekt fallen, von denen, die auf den Untergrund fallen, aufwendig getrennt werden. Ebenfalls macht der Aufbau die Nachbearbeitung der gemessenen Weltkoordinaten im Gegensatz zu vergleichbaren Konstruktionen (z.B. bei schwenkbaren Scannern) besonders simpel: Da sich die Apparatur zwischen Aufnahmen lediglich entlang der Z-Achse bewegt und dieser Abstand bekannt ist, kann auf den Z-Achsen-Anteil des Messungsendergebnis der besagte Abstand einfach addiert werden.\bigbreak
 Der Gesamtaufbau setzt vor allem auf eine praktikable Lösung, die problemlos nachgebaut werden kann und sich dem zu Grunde liegenden Problem so nähert, dass anschließende Verarbeitungen und Berechnungen erleichtert werden. Zudem ist die Konstruktion kostengünstig. In Tabelle \ref{tab:preise} können die Preise in Euro eingesehen werden, die alle Komponenten (außer Kleinteile wie einzelne Schrauben, Holzleim etc.) gekostet haben. Zusammen kommt der Scanner auf einen Preis von ca. 45,14\euro
 
@@ -42,7 +42,7 @@ Der Gesamtaufbau setzt vor allem auf eine praktikable Lösung, die problemlos na
 			Pappel-Sperrholz &  2,29 \euro\\
 			Gurtband & 3,38 \euro
 		\end{tabular}
-	\caption{Bezeichnung der Tabelle}
+	\caption{Kosten der einzelnen Scanvorrichtungskomponenten}
 	\label{tab:preise}
 \end{table}
 
@@ -56,14 +56,17 @@ Die Kalibrierung der internen Kameraparameter beispielsweise ist unabhängig von
 \begin{wrapfigure}{L}{0.45\textwidth}
 \centering 
 \includegraphics[width=0.45\textwidth]{images/ScannerVerfahren.pdf}
-\label{fig:scanVorgang}
-\caption{Der schematische Ablauf des Scanvorgangs}
+\caption{Der schematische Ablauf des Scanvorgangs}\label{fig:scanVorgang}
 \end{wrapfigure}
 \leavevmode
 
 \subsection{Kalibrierung der internen Kameraparameter}
 \label{subsec:interneKalibrierung}
-In Abschnitt \ref{subsec:KameraKalibrierungTheorie} wurde die Theorie hinter der Kamerakalibrierung bereits erläutert, daher soll das Verfahren an dieser Stelle lediglich aus praktischer Sicht betrachtet werden. Aus Gründen, welche in \ref{fig:scanVorgang} dargelegt wurden, ist der Kamerakalibreirungsprozess in zwei zeitlich voneinander getrennte Teile gespalten. Am Anfang steht hierbei die Bestimmung der internen Kameraparamtern, insbesondere der internen Kameramatrix. Um diese abzuschätzen wurde auf die in Matlab integrierte Kamerakalibrirungsapp zurückgegriffen, welche aus einem Set von vorher aufgenommenen Bildern die Kameraparameter (wie in \ref{subsec:KameraKalibrierungTheorie} beschrieben) schätzt. Dabei werden eine Reihe von Kalibrierungsbilder, welche vorher aufgenommen wurden, in die App importiert und anschließend von jener verarbeitet. Bevor die nun geschätzte interne Kameramatrix als eigenständige Datei exportiert werden kann, sollten die sogenannten Reprojection Errors begutachtet werden. Diese stellen eine Metrik dar, welche besagt wie erfolgreich die Kalibrierung verlaufen ist und ergibt sich aus dem Abstand zwischen den im Bild erkannten Schachbrett-Punkten und den auf das Bild zurück projizierten korrespondierenden Weltkoordinaten (mehr dazu auch bei !QUELLE! und !QUELLE!). Bei den dieser Ausarbeitung mitgelieferten Kalibrierungsbilder wurde ein durchschnittlicher Reprojection Error von !WERT! erreicht, jedoch gilt laut einer Faustregel aus !QUELLE! jeder durchschnittliche Fehler von unter einem Pixel als akzeptabel. Am Ende der Kalibrierung muss die interne Kameramatrix gespeichert und für die weiteren Schritte hinterlegt werden.  
+In Abschnitt \ref{subsec:KameraKalibrierungTheorie} wurde die Theorie hinter der Kamerakalibrierung bereits erläutert, daher soll das Verfahren an dieser Stelle lediglich aus praktischer Sicht betrachtet werden. Aus Gründen, welche in \ref{fig:scanVorgang} dargelegt wurden, ist der Kamerakalibreirungsprozess in zwei zeitlich voneinander getrennte Teile gespalten. Am Anfang steht hierbei die Bestimmung der internen Kameraparamtern, insbesondere der internen Kameramatrix. Um diese abzuschätzen wurde auf die in Matlab integrierte Kamerakalibrirungsapp zurückgegriffen, welche aus einem Set von vorher aufgenommenen Bildern die Kameraparameter (wie in \ref{subsec:KameraKalibrierungTheorie} beschrieben) schätzt. Dabei werden eine Reihe von Kalibrierungsbilder, welche vorher aufgenommen wurden, in die App importiert und anschließend von jener verarbeitet. Bevor die nun geschätzte interne Kameramatrix als eigenständige Datei exportiert werden kann, sollten die sogenannten Reprojection Errors begutachtet werden. Diese stellen eine Metrik dar, welche besagt wie erfolgreich die Kalibrierung verlaufen ist und ergibt sich aus dem Abstand zwischen den im Bild erkannten Schachbrett-Punkten und den auf das Bild zurück projizierten korrespondierenden Weltkoordinaten (mehr dazu auch bei \cite{Mathworks:17} und \cite{StackOverflow:15}). Bei den dieser Ausarbeitung mitgelieferten Kalibrierungsbilder wurde ein durchschnittlicher Reprojection Error von !WERT! erreicht. Laut \cite{Mathworks:17} gilt jeder durchschnittliche Fehler von unter einem Pixel als akzeptabel:
+\begin{quotation}
+As a general rule, reprojection errors of less than one pixel are acceptable.
+\end{quotation}
+Am Ende der Kalibrierung muss die interne Kameramatrix gespeichert und für die weiteren Schritte hinterlegt werden.  
 
 \subsection{Datenerhebung}
 \label{subsec:Datenerhebung}
@@ -87,22 +90,30 @@ Die Rechtseindeutigkeit ist hierbei essentiell: Keiner Spalte des Bildes darf me
 
 Seien nun zwei Pixellinien \(L_{1}\) und \(L_{2}\) gegeben. Die Menge
 \begin{equation}
+\label{equ:DefS}
 S_{1,2} = \lbrace abs(r_{1} - r_{2}) \mid \exists c \in C: (c, r_{1}) \in L_{1} \wedge (c, r_{2}) \in L_{2} \rbrace
 \end{equation}
 
 ist dann die Menge aller vertikalen Pixel-Abstände in Pixelspalten, in denen beide Pixellinien eine Pixelkoordinate besitzen. 
 
 \begin{equation}
+\label{equ:DefT}
 T_{1,2} = (Dom(L_{1}) \cup Dom(\L_{2})) \setminus (Dom(L_{1}) \cap Dom(L_{2}))   
 \end{equation}   
 
 ist die Menge aller Spaltenindizes beider Linien, die in der jeweils anderen Pixellinie auf keine Reihe abbilden. Mittels dieser beiden Mengendefinitionen kann nun die Distanzfunktion \(D: (C \times R) \times (C \times R) \rightarrow \mathbb{R}\) definiert werden als:
 
 \begin{equation}
+\label{equ:distance}
 D(L_{1}, L_{2}) = \frac{1}{\vert S_{1,2} \vert + \vert T_{1,2} \vert} \sum_{x \in S_{1, 2}}^{}x + ( \vert T_{1,2} \vert * h )
 \end{equation}
 
-\(D\) berechnet also das arithmetische Mittel aller vertikalen Pixelabstände der beiden Pixellinien. Dort wo die beiden Pixellinien sich horizontal überlappen, kann dafür der Pixelabstand genommen werden. In den Spalten, wo jedoch nur eine Linie definiert ist, kann kein direkter Abstand berechnet werden, daher wird ein "`penalty''-Term in Form der Höhe des Bildes auf die Summe gerechnet. Diese ermöglicht, dass Pixellinien mit viel horizontaler Überschneidung näher bzw. in diesem Kontext ähnlicher zueinander eingestuft werden, als Linien, die horizontale Lücken aufweisen. Abb. !BILD! veranschaulicht die Metrik noch etwas deutlicher. \bigbreak
+\(D\) berechnet also das arithmetische Mittel aller vertikalen Pixelabstände der beiden Pixellinien. Dort wo die beiden Pixellinien sich horizontal überlappen, kann dafür der Pixelabstand genommen werden. In den Spalten, wo jedoch nur eine Linie definiert ist, kann kein direkter Abstand berechnet werden, daher wird ein "`penalty''-Term in Form der Höhe des Bildes auf die Summe gerechnet. Diese ermöglicht, dass Pixellinien mit viel horizontaler Überschneidung näher bzw. in diesem Kontext ähnlicher zueinander eingestuft werden, als Linien, die horizontale Lücken aufweisen. Abb. \ref{fig:LineDistanceSchematic} verbildlicht die Berechnung der Metrik etwas deutlicher. 
+\begin{figure}
+\centering \includegraphics[width=\textwidth]{images/LineDistance.pdf}
+\caption{Berechnung der Distanz zwischen zwei Linien. Zu sehen ist ein Schema der Berechnung aus \ref{equ:distance}. Die einzelnen grauen Kästchen stellen Pixel aus einem Bild mit Spalten \(C = \lbrace c_{1} \ldots c_{12} \rbrace\) und Reihen \(R = \lbrace r_{1} \ldots r_{6} \rbrace\) dar. Die rot und grün eingefärbten Pixel sind Elemente von \(L_{1}\) und \(L_{2}\) und \(S = \lbrace s_{1} \ldots s_{2} \rbrace\) und \(T = \lbrace t_{1} \rbrace\) entsprechen den Definitionen aus Gleichungen \ref{equ:DefS} und \ref{equ:DefT}}\label{fig:LineDistanceSchematic}
+\end{figure}
+\bigbreak
 Zusammengefasst läuft die Farbkalibrierung folgender Maßen ab: Zuerst wird der Benutzer dazu aufgefordert mittels einiger Punkte die horizontal verlaufende projizierte Laserlinie mittels eines Splines nachzuzeichnen. Anschließend wird der globale Cr-Grenzwert mit null initialisiert und die erste Laserlinie, die automatisch mit diesem Grenzwert lokalisiert wird (siehe dazu \ref{subsec:LaserLinieBestimmung}), wird mit der oben beschriebenen Metrik \(D\) die Ähnlichkeit der gefundenen Linie zum "`Goldstandard'' bestimmt und der aktuelle Cr-Grenzwert als am besten passender Grenzwert vermerkt. Als nächstes wird der Grenzwert um einen bestimmten Wert erhöht und die Laserlinie wird wieder lokalisiert. Wenn diese Linie näher an der vom Benutzer festgelegten Pixellinie liegt, wird der neue, erhöhte Cr-Grenzwert als optimal vermerkt. Dieses Verfahren geht so lange weiter, bis für einen neuen Grenzwert keine Linie gefunden werden kann, die näher am Goldstandard liegt. Der gefundene Grenzwert wird nun für die folgenden Schritte des Scanvorgangs gespeichert.
 
 

@@ -1,5 +1,6 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: vorlage.aux
-I found no \citation commands---while reading file vorlage.aux
-I found no \bibdata command---while reading file vorlage.aux
-I found no \bibstyle command---while reading file vorlage.aux
-(There were 3 error messages)
+The style file: geralpha.bst
+Database file #1: literatur.bib
+Warning--to sort, need author or key in Mathworks:17
+Warning--to sort, need author or key in StackOverflow:15
+(There were 2 warnings)
