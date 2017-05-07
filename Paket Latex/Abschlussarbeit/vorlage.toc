@@ -11,11 +11,11 @@
 \contentsline {subsection}{\numberline {3.2.1}Kalibrierung der internen Kameraparameter}{6}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Datenerhebung}{6}{subsection.3.2.2}
 \contentsline {subsection}{\numberline {3.2.3}Farbkalibrierung}{7}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Kalibrierung der externen Kameraparameter}{9}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.4}Kalibrierung der externen Kameraparameter}{10}{subsection.3.2.4}
 \contentsline {subsection}{\numberline {3.2.5}Bestimmung der Laserlinie}{10}{subsection.3.2.5}
-\contentsline {subsubsection}{Berechnung der Weltkoordinaten}{11}{section*.6}
+\contentsline {subsubsection}{Berechnung der Weltkoordinaten}{11}{section*.5}
 \contentsline {chapter}{\numberline {4}Ergebnisse}{13}{chapter.4}
 \contentsline {section}{\numberline {4.1}Laserlinienbestimmung}{13}{section.4.1}
 \contentsline {section}{\numberline {4.2}Messgenauigkeit}{14}{section.4.2}
 \contentsline {chapter}{\numberline {5}Fazit}{16}{chapter.5}
-\contentsline {chapter}{Literaturverzeichnis}{17}{chapter*.7}
+\contentsline {chapter}{Literaturverzeichnis}{17}{chapter*.6}

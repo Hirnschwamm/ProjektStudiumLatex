@@ -109,10 +109,12 @@ D(L_{1}, L_{2}) = \frac{1}{\vert S_{1,2} \vert + \vert T_{1,2} \vert} \sum_{x \i
 \end{equation}
 
 \(D\) berechnet also das arithmetische Mittel aller vertikalen Pixelabstände der beiden Pixellinien. Dort wo die beiden Pixellinien sich horizontal überlappen, kann dafür der Pixelabstand genommen werden. In den Spalten, wo jedoch nur eine Linie definiert ist, kann kein direkter Abstand berechnet werden, daher wird ein "`penalty''-Term in Form der Höhe des Bildes auf die Summe gerechnet. Diese ermöglicht, dass Pixellinien mit viel horizontaler Überschneidung näher bzw. in diesem Kontext ähnlicher zueinander eingestuft werden, als Linien, die horizontale Lücken aufweisen. Abb. \ref{fig:LineDistanceSchematic} verbildlicht die Berechnung der Metrik etwas deutlicher. 
+
 \begin{figure}
 \centering \includegraphics[width=\textwidth]{images/LineDistance.pdf}
-\caption{Berechnung der Distanz zwischen zwei Linien. Zu sehen ist ein Schema der Berechnung aus \ref{equ:distance}. Die einzelnen grauen Kästchen stellen Pixel aus einem Bild mit Spalten \(C = \lbrace c_{1} \ldots c_{12} \rbrace\) und Reihen \(R = \lbrace r_{1} \ldots r_{6} \rbrace\) dar. Die rot und grün eingefärbten Pixel sind Elemente von \(L_{1}\) und \(L_{2}\) und \(S = \lbrace s_{1} \ldots s_{2} \rbrace\) und \(T = \lbrace t_{1} \rbrace\) entsprechen den Definitionen aus Gleichungen \ref{equ:DefS} und \ref{equ:DefT}}\label{fig:LineDistanceSchematic}
+\caption[Berechnung der Distanz zwischen zwei Linien]{Berechnung der Distanz zwischen zwei Linien. Zu sehen ist ein Schema der Berechnung aus Gleichung \ref{equ:distance}. Die einzelnen grauen Kästchen stellen Pixel aus einem Bild mit Spalten \(C = \lbrace c_{1} \ldots c_{12} \rbrace\) und Reihen \(R = \lbrace r_{1} \ldots r_{6} \rbrace\) dar. Die rot und grün eingefärbten Pixel sind Elemente von \(L_{1}\) und \(L_{2}\) und \(S = \lbrace s_{1} \ldots s_{2} \rbrace\) und \(T = \lbrace t_{1} \rbrace\) entsprechen den Definitionen aus Gleichungen \ref{equ:DefS} und \ref{equ:DefT}}\label{fig:LineDistanceSchematic}
 \end{figure}
+
 \bigbreak
 Zusammengefasst läuft die Farbkalibrierung folgender Maßen ab: Zuerst wird der Benutzer dazu aufgefordert mittels einiger Punkte die horizontal verlaufende projizierte Laserlinie mittels eines Splines nachzuzeichnen. Anschließend wird der globale Cr-Grenzwert mit null initialisiert und die erste Laserlinie, die automatisch mit diesem Grenzwert lokalisiert wird (siehe dazu \ref{subsec:LaserLinieBestimmung}), wird mit der oben beschriebenen Metrik \(D\) die Ähnlichkeit der gefundenen Linie zum "`Goldstandard'' bestimmt und der aktuelle Cr-Grenzwert als am besten passender Grenzwert vermerkt. Als nächstes wird der Grenzwert um einen bestimmten Wert erhöht und die Laserlinie wird wieder lokalisiert. Wenn diese Linie näher an der vom Benutzer festgelegten Pixellinie liegt, wird der neue, erhöhte Cr-Grenzwert als optimal vermerkt. Dieses Verfahren geht so lange weiter, bis für einen neuen Grenzwert keine Linie gefunden werden kann, die näher am Goldstandard liegt. Der gefundene Grenzwert wird nun für die folgenden Schritte des Scanvorgangs gespeichert.
 
@@ -123,7 +125,14 @@ Um Koordinaten der projizierten Laserlinie auf dem zu vermessenden Objekt nicht 
 
 \subsection{Bestimmung der Laserlinie}
 \label{subsec:LaserLinieBestimmung}
-Bevor aus der Laserlinie Tiefeninformationen gelesen werden können, muss die Position jener Linie in Bildkoordinaten bestimmt werden. Dieser Schritt geschieht im Schritt der Laserlinienbestimmung, welcher erstmals auf jedem Bild des Datensatzes ausgeführt werden muss, da sich die Laserlinie von Bild zu Bild verformen kann und nicht für den gesamten Datensatz gleich bleibt. Als erstes wird hierfür die Laserlinie mittels dem Cr-Grenzwert segmentiert, der in Kapitel \ref{subsec:Farbkalibrierung} ermittelt wurde. Man erhält eine Maske, in der alle Pixel, die unter dem Cr-Grenzwert liegen, geschwärzt werden. Es bleibt also nur die Segmentierung der Laserlinie übrig (vgl. Abb. !BILD!). Nun kann für jede Spalte abgeschätzt werden, wo in dieser Spalte die Laserlinie auftritt, falls sie überhaupt in dieser Bildspalte zu finden ist. Dies geschieht indem ein arithmetisches Mittel über die Reihenindizes der gegeben Spalte berechnet wird, welche mit den Rotwerten des jeweils indizierten Pixels gewichtet wird. Gegeben seien die bestehenden Definitionen aus dem Kapitel \ref{subsec:Farbkalibrierung}. Sei zudem \(Red(c,r)\) für \(c \in C\) und \(r \in R\) der Rotwert des Pixels \((c,r)\). Die Menge aller zu einem Spaltenindex \(c \in C\) gehörenden Reihenindizes sei definiert als:
+
+\begin{wrapfigure}{L}{0.5\textwidth}
+\centering \includegraphics[width=0.45\textwidth]{images/Segmentierung.pdf}
+\caption[Extraktion der Laserlinie]{Extraktion der Laserlinie.}\label{fig:LaserLinieExtraktion}
+\end{wrapfigure}
+\leavevmode
+
+Bevor aus der Laserlinie Tiefeninformationen gelesen werden können, muss die Position jener Linie in Bildkoordinaten bestimmt werden. Dieser Schritt geschieht im Schritt der Laserlinienbestimmung, welcher erstmals auf jedem Bild des Datensatzes ausgeführt werden muss, da sich die Laserlinie von Bild zu Bild verformen kann und nicht für den gesamten Datensatz gleich bleibt. Als erstes wird hierfür die Laserlinie mittels dem Cr-Grenzwert segmentiert, der in Kapitel \ref{subsec:Farbkalibrierung} ermittelt wurde. Man erhält eine Maske, in der alle Pixel, die unter dem Cr-Grenzwert liegen, geschwärzt werden. Es bleibt also nur die finale Segmentierung der Laserlinie übrig (vgl. Abb. \ref{fig:LaserLinieExtraktion}). Nun kann für jede Spalte abgeschätzt werden, wo in dieser Spalte die Laserlinie auftritt, falls sie überhaupt in dieser Bildspalte zu finden ist. Dies geschieht indem ein arithmetisches Mittel über die Reihenindizes der gegeben Spalte berechnet wird, welche mit den Rotwerten des jeweils indizierten Pixels gewichtet wird. Gegeben seien die bestehenden Definitionen aus dem Kapitel \ref{subsec:Farbkalibrierung}. Sei zudem \(Red(c,r)\) für \(c \in C\) und \(r \in R\) der Rotwert des Pixels \((c,r)\). Die Menge aller zu einem Spaltenindex \(c \in C\) gehörenden Reihenindizes sei definiert als:
 \begin{equation}
 R_{c} = \lbrace r \in R \mid (c, r) \in C \times R \rbrace
 \end{equation}
@@ -134,17 +143,18 @@ LineRow(c) = \frac{\sum_{x \in R_{c}} Red(c,x) * x}{\sum_{x \in R_{c}} Red(c,x)}
 \end{equation}
 Das Ergebnis ist eine subpixelgenaue Bestimmung der Höhe der Laserlinie in Spalte \(c\). Die Gesamte Pixellinie ist also definiert als: 
 \begin{equation}
+\label{equ:LAuto}
 L_{auto} = \lbrace (c,r) \in C \times R \mid r = LineRow(c) \wedge r > 0 \rbrace
 \end{equation} 
 
-Da sich aus verschiedenen Gründen nicht immer zur Gänze darauf verlassen werden kann, dass die Segmentierung die Laserlinie in ihrer  Gesamtheit erfasst wird (vgl. Abschnitt \ref{subsec:segmentierung}), kann es sein, dass eine verzerrte Version der Laserlinie berechnet wird, wenn lediglich das segmentierte Bild als Basis für \(L_{auto}\) herangezogen wird. Daher wird der Prozess zweimal durchgeführt: Zuerst wird eine Annäherung \(L_{auto}\prime\) mit dem segmentierten Bild berechnet. Anschließend werden in jeder Pixelspalte der Linie in einem festgelegten Abstand oberhalb und unterhalb des aktuellen Reihenindizes wieder "`eingeblendet'', das heißt aus dem ursprünglichen, unsegmentierten Bild herangezogen. Außerhalb dieses Bereichs bleiben die Pixel jedoch geschwärzt (siehe Abb. !BILD!). Mit diesen Pixelinformationen wird dann \(L_{auto}\) berechnet, welches die Bildkoordinaten der projizierten Laserlinie darstellt. Im folgenden Verlauf des Scanvorgangs werden diese Bildkoordinaten in Weltkoordinaten umgewandelt.
+Da sich aus verschiedenen Gründen nicht immer zur Gänze darauf verlassen werden kann, dass die Segmentierung die Laserlinie in ihrer  Gesamtheit erfasst wird (vgl. Abschnitt \ref{subsec:segmentierung}), kann es sein, dass eine verzerrte Version der Laserlinie berechnet wird, wenn lediglich das segmentierte Bild als Basis für \(L_{auto}\) herangezogen wird. Daher wird der Prozess zweimal durchgeführt: Zuerst wird eine Annäherung \(L_{auto}\prime\) mit dem segmentierten Bild berechnet. Anschließend werden in jeder Pixelspalte der approximierten Linie die Rotwerte des unmaskierten Bildes in einem festgelegten Abstand oberhalb und unterhalb des aktuellen Reihenindex wieder "`eingeblendet'', wobei die Pixel außerhalb dieses Bereichs jedoch nach wie vor geschwärzt bleiben. Diese neue Segmentierung wird nun als Basis für die Berechnung von \(L_{auto}\) herangezogen, welche wie durch Gleichung \ref{equ:LAuto} beschrieben bestimmt wird. Dies führt zu einer genaueren Annäherung an die Optimallinie und einem generell "`weicheren'' Verlauf der extrahierten Pixellinie (siehe Abb. \ref{fig:LaserLinieExtraktion}. \(L_{auto}\) stellt die Bildkoordinaten der projizierten Laserlinie dar aufgrund derer im folgenden Verlauf des Scanvorgangs in Weltkoordinaten berechnet werden.
 
 \subsubsection{Berechnung der Weltkoordinaten}
 Am Ende des Scanvorgangs steht die Berechnung der Weltkoordinaten. Hier werden für jedes aufgenommene Bild die Bildkoordinaten der in Schritt \ref{subsec:LaserLinieBestimmung} bestimmten Pixellinie \(L_{auto}\) wie folgt umgerechnet. Sei 
 \begin{equation}
 \vec{p_{Bild}} = \left(\begin{array}{c}x\\y\end{array}\right)
 \end{equation} 
-ein als Vektor interpretierter Punkt \((x, y)\) in \(L_{auto}\). Der Punkt kann mit der internen Kameramatrix \(K\) in das Kamerakoordinatensystem umgewandelt werden. Der Tiefenanteil, also die Z-Koordinate, wird hierbei noch nicht berechnet, sondern erst einmal auf 1 gesetzt:
+ein als Vektor interpretierter Bildkoordinatenpunkt \((x, y)\) in \(L_{auto}\). Der Punkt kann mit der internen Kameramatrix \(K\) in das Kamerakoordinatensystem umgewandelt werden. Der Tiefenanteil, also die Z-Koordinate, wird hierbei noch nicht berechnet, sondern erst einmal auf 1 gesetzt:
 \begin{equation}
 \vec{p_{Kamera}}  = K * \left(\begin{array}{c}x\\y\\1\end{array}\right)
 \end{equation}
