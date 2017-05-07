@@ -17,5 +17,5 @@
 \contentsline {chapter}{\numberline {4}Ergebnisse}{13}{chapter.4}
 \contentsline {section}{\numberline {4.1}Laserlinienbestimmung}{13}{section.4.1}
 \contentsline {section}{\numberline {4.2}Messgenauigkeit}{14}{section.4.2}
-\contentsline {chapter}{\numberline {5}Fazit}{16}{chapter.5}
-\contentsline {chapter}{Literaturverzeichnis}{17}{chapter*.6}
+\contentsline {chapter}{\numberline {5}Fazit}{18}{chapter.5}
+\contentsline {chapter}{Literaturverzeichnis}{19}{chapter*.6}
