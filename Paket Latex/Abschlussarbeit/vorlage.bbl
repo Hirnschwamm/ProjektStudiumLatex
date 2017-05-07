@@ -1,4 +1,9 @@
-\begin{thebibliography}{Mat}
+\begin{thebibliography}{Kow}
+
+\bibitem[Kow]{Kowdle}
+{\sc Kowdle, Adarsh}: {\em Back projection - 2D points to 3D}.
+\newblock \\
+  {\url{http://chenlab.ece.cornell.edu/people/adarsh/publications/BackProjection.pdf}}.
 
 \bibitem[Mat]{Mathworks:17}
 {\em Single Camera Calibration App}.
