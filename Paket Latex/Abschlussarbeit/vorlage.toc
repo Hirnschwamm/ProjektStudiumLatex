@@ -1,21 +1,21 @@
 \select@language {ngerman}
 \select@language {ngerman}
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
-\contentsline {chapter}{\numberline {2}Das Verfahren in der Theorie}{2}{chapter.2}
-\contentsline {section}{\numberline {2.1}Das mathematische Modell einer Kamera}{2}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Die Kamera Kalibrierung}{2}{subsection.2.1.1}
-\contentsline {section}{\numberline {2.2}Der Lichschnitt}{2}{section.2.2}
-\contentsline {chapter}{\numberline {3}Implementierung}{3}{chapter.3}
-\contentsline {section}{\numberline {3.1}Scanner Konstruktion}{3}{section.3.1}
-\contentsline {section}{\numberline {3.2}Der Scanvorgang}{5}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Kalibrierung der internen Kameraparameter}{6}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Datenerhebung}{7}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Farbkalibrierung}{7}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Kalibrierung der externen Kameraparameter}{10}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {3.2.5}Bestimmung der Laserlinie}{10}{subsection.3.2.5}
-\contentsline {subsubsection}{Berechnung der Weltkoordinaten}{11}{section*.5}
-\contentsline {chapter}{\numberline {4}Ergebnisse}{13}{chapter.4}
-\contentsline {section}{\numberline {4.1}Laserlinienbestimmung}{13}{section.4.1}
-\contentsline {section}{\numberline {4.2}Messgenauigkeit}{14}{section.4.2}
-\contentsline {chapter}{\numberline {5}Fazit}{18}{chapter.5}
-\contentsline {chapter}{Literaturverzeichnis}{19}{chapter*.6}
+\contentsline {chapter}{\numberline {2}Das Verfahren in der Theorie}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Das mathematische Modell einer Kamera}{3}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Die Kamera Kalibrierung}{3}{subsection.2.1.1}
+\contentsline {section}{\numberline {2.2}Der Lichschnitt}{3}{section.2.2}
+\contentsline {chapter}{\numberline {3}Implementierung}{4}{chapter.3}
+\contentsline {section}{\numberline {3.1}Scanner Konstruktion}{4}{section.3.1}
+\contentsline {section}{\numberline {3.2}Der Scanvorgang}{6}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Kalibrierung der internen Kameraparameter}{7}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Datenerhebung}{8}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Farbkalibrierung}{8}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Kalibrierung der externen Kameraparameter}{11}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}Bestimmung der Laserlinie}{11}{subsection.3.2.5}
+\contentsline {subsubsection}{Berechnung der Weltkoordinaten}{12}{section*.5}
+\contentsline {chapter}{\numberline {4}Ergebnisse}{14}{chapter.4}
+\contentsline {section}{\numberline {4.1}Laserlinienbestimmung}{14}{section.4.1}
+\contentsline {section}{\numberline {4.2}Messgenauigkeit}{15}{section.4.2}
+\contentsline {chapter}{\numberline {5}Fazit}{19}{chapter.5}
+\contentsline {chapter}{Literaturverzeichnis}{20}{chapter*.6}

@@ -1,4 +1,10 @@
-\begin{thebibliography}{Kow}
+\begin{thebibliography}{Ebr11}
+
+\bibitem[Ebr11]{Ebrahim:11}
+{\sc Ebrahim, Mostafa A-B}: {\em 3D Laser Scanners: History, Applications and
+  Future}, 2011.
+\newblock \\Faculty of Engineering, Assiut University
+  {\url{https://www.researchgate.net/publication/267037683_3D_LASER_SCANNERS_HISTORY_APPLICATIONS_AND_FUTURE}}.
 
 \bibitem[Kow]{Kowdle}
 {\sc Kowdle, Adarsh}: {\em Back projection - 2D points to 3D}.
@@ -10,10 +16,21 @@
 \newblock \\
   {\url{https://de.mathworks.com/help/vision/ug/single-camera-calibrator-app.html}}.
 
+\bibitem[rie16]{riegl:17}
+{\em Riegl PH-4000/6000-SRH}, 2016.
+\newblock \\Produktseite der Firma Riegl für einen Industrie-Scanner
+  {\url{http://www.riegl.com/nc/products/industrial-scanning/produktdetail/product/scanner/51/}}.
+
 \bibitem[Sta]{StackOverflow:15}
 {\em Stack Overflow - How is the reprojection error calculated in Matlab's
   triangulate function?}
 \newblock \\
   {\url{http://stackoverflow.com/questions/29095349/how-is-the-reprojection-error-calculated-in-matlabs-triangulate-function-sadly}}.
+
+\bibitem[Zol16]{Zoller:16}
+{\em Zoller + Fröhlich GmbH - Forensik}, 2016.
+\newblock \\Webseite der Firma Zoller + Fröhlich, benutzen Laserscanner um
+  Unfallorte zu vermessen
+  {\url{http://www.zf-laser.com/Forensik.3d_laserscanning1.0.html}}.
 
 \end{thebibliography}
