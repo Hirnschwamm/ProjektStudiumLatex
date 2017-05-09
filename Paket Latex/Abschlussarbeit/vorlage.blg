@@ -1,8 +1,14 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: vorlage.aux
 The style file: geralpha.bst
 Database file #1: literatur.bib
+Repeated entry---line 252 of file literatur.bib
+ : @misc{Simek:12
+ :               ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "Mathworks:17"
 Warning--to sort, need author or key in riegl:17
 Warning--to sort, need author or key in Zoller:16
-Warning--to sort, need author or key in Mathworks:17
+Warning--to sort, need author or key in Mathworks:17b
+Warning--to sort, need author or key in Mathworks:17a
 Warning--to sort, need author or key in StackOverflow:15
-(There were 4 warnings)
+(There was 1 error message)

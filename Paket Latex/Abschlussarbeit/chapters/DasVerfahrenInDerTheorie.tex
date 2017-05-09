@@ -1,7 +1,35 @@
 \chapter{Das Verfahren in der Theorie}
+In diesem Kapitel wird auf die theoretischen Grundlagen des Verfahrens eingegangen. Es handelt sich dabei um eine Zusammenfassung, welche die wichtigsten Konzepte für das weitere Verständnis aufbereiten soll und beschränkt sich daher auf das Wesentliche. Weiterführende Lektüre, welche für die folgenden Abschnitte auch als Quelle gedient hat, ist unter anderem zu finden bei \cite{Simek:12}, \cite{Mathworks:17b} oder \cite{Rahmann}.
 
 \section{Das mathematische Modell einer Kamera}
-TODO
+Das Lichtschnittverfahren macht sich nicht nur den eingangs erwähnten Laser zu Nutze, sondern nutzt zusätzlich eine Kamera um die räumlichen Informationen des vermessenen Objektes zu rekonstruieren. Die Kamera dient dabei als Betrachter der projizierten Laserlinie. Mathematisch wird hier das Modell einer Lochkamera zugrunde gelegt. Bei diesem Modell wird angenommen, dass Lichtstrahlen, die von einem Objekt reflektiert werden, durch den Fokuspunkt der Kamera fallen, dort gebündelt werden, und anschließend auf der anderen Seite des Fokuspunktes auf eine gegenüberliegende Projektionsfläche geworfen werden. So entsteht auf der Projektionsfläche das invertierte Bild des Objektes. Abb. \ref{fig:lochkamera} verdeutlicht das Modell. 
+
+\begin{figure}
+\centering \includegraphics{images/lochkamera.png}
+\caption[Modell einer Lochkamera]{Modell einer Lochkamera. Quelle: \cite{Mathworks:17b}}\label{fig:lochkamera}
+\end{figure}
+
+Es handelt sich also um eine Projektion vom dreidimensionalen Raum, dem Weltkoordinatensystem, auf eine zweidimensionale Fläche, im Folgenden als Bildebene bezeichnet. Wie diese Projektion stattfindet, hängt vor allem von zwei Kamera-abhängigen Sets an Parametern ab: Den intrinsischen und den extrinsischen Kameraparametern. Erstere hängen lediglich von der Beschaffenheit der Kamera ab und ändern sich nicht wenn die Kamera ihre Position im Raum ändert. Hierunter fallen die Brennweite der Kamera ("`Focal length'' in der oben stehenden Abbildung) sowie der Ursprung des Bildebenenkoordinatensystms. Außerdem wird hierüber eine Scherung des projizierten Bildes bestimmt. Die intrinsischen Parameter können in einer Matrix zusammengefasst werden, welche meistens mit dem Buchstaben \(K\) notiert wird.
+\newline
+Im Gegensatz dazu definieren die extrinsischen Parameter die Orientierung und die Position der Kamera im Weltkoordinatensystem. Entsprechend werden diese als eine Rotationsmatrix \(R\) und ein Ortsvektor \(T\) ausgedrückt. Dabei handelt es sich bei \(T\) jedoch nicht etwa um die Position der Kamera in Weltkoordinaten, sondern um den Ursprung des Weltkoordinatensystems welcher in dem Koordinatensystem ausgedrückt ist, dessen Ursprung in der Kamera liegt.
+\newline
+Mithilfe dieser Parameter ergibt sich die Kameramatrix \(P\) als
+\begin{equation}
+	P = K \big[ R \mid T \big] 
+\end{equation}
+Sei nun 
+\begin{equation}
+	\vec{z_{W}} = \left(\begin{array}{c}x\\y\\z\\1\end{array}\right)
+\end{equation}
+ein Punkt im Weltkoordinatensystem, ausgedrückt in homogenen Koordinaten. Dann lässt sich der projizierte Bildpunkt
+\begin{equation}
+	\vec{z_{B}} = \left(\begin{array}{c}u\\v\\1\end{array}\right)
+\end{equation}
+wie folgt berechnen:
+\begin{equation}
+	\vec{z_{B}} = P * \vec{z_{W}}
+\end{equation}
+
 
 \subsection{Die Kamera Kalibrierung}
 \label{subsec:KameraKalibrierungTheorie}

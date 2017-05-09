@@ -11,15 +11,30 @@
 \newblock \\
   {\url{http://chenlab.ece.cornell.edu/people/adarsh/publications/BackProjection.pdf}}.
 
-\bibitem[Mat]{Mathworks:17}
+\bibitem[Mata]{Mathworks:17a}
 {\em Single Camera Calibration App}.
-\newblock \\
+\newblock \\Matlab Dokumentation
   {\url{https://de.mathworks.com/help/vision/ug/single-camera-calibrator-app.html}}.
+
+\bibitem[Matb]{Mathworks:17b}
+{\em What Is Camera Calibration?}
+\newblock \\Matlab Dokumentation
+  {\url{https://de.mathworks.com/help/vision/ug/camera-calibration.html}}.
+
+\bibitem[Rah]{Rahmann}
+{\sc Rahmann, Burkhardt}: {\em Kamerakalibrierung}.
+\newblock \\Praktikum der Universität
+  Freiburg{\url{https://lmb.informatik.uni-freiburg.de/lectures/praktika_brox/bvpraktikum/BVAnl_kam_kalib.pdf}}.
 
 \bibitem[rie16]{riegl:17}
 {\em Riegl PH-4000/6000-SRH}, 2016.
 \newblock \\Produktseite der Firma Riegl für einen Industrie-Scanner
   {\url{http://www.riegl.com/nc/products/industrial-scanning/produktdetail/product/scanner/51/}}.
+
+\bibitem[Sim]{Simek:12}
+{\sc Simek, Kyle}: {\em Dissecting the Camera Matrix}.
+\newblock \\Artikelserie zur Kameramatrix
+  {\url{http://ksimek.github.io/2013/08/13/intrinsic/}}.
 
 \bibitem[Sta]{StackOverflow:15}
 {\em Stack Overflow - How is the reprojection error calculated in Matlab's
