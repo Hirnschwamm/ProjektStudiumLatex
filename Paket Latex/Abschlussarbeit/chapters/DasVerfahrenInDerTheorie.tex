@@ -9,7 +9,17 @@ Das Lichtschnittverfahren macht sich nicht nur den eingangs erwähnten Laser zu 
 \caption[Modell einer Lochkamera]{Modell einer Lochkamera. Quelle: \cite{Mathworks:17b}}\label{fig:lochkamera}
 \end{figure}
 
-Es handelt sich also um eine Projektion vom dreidimensionalen Raum, dem Weltkoordinatensystem, auf eine zweidimensionale Fläche, im Folgenden als Bildebene bezeichnet. Wie diese Projektion stattfindet, hängt vor allem von zwei Kamera-abhängigen Sets an Parametern ab: Den intrinsischen und den extrinsischen Kameraparametern. Erstere hängen lediglich von der Beschaffenheit der Kamera ab und ändern sich nicht wenn die Kamera ihre Position im Raum ändert. Hierunter fallen die Brennweite der Kamera ("`Focal length'' in der oben stehenden Abbildung) sowie der Ursprung des Bildebenenkoordinatensystms. Außerdem wird hierüber eine Scherung des projizierten Bildes bestimmt. Die intrinsischen Parameter können in einer Matrix zusammengefasst werden, welche meistens mit dem Buchstaben \(K\) notiert wird.
+Es handelt sich also um eine Projektion vom dreidimensionalen Raum, dem Weltkoordinatensystem, auf eine zweidimensionale Fläche, im Folgenden als Bildebene bezeichnet. Wie diese Projektion stattfindet, hängt vor allem von zwei Kamera-abhängigen Sets an Parametern ab: Den intrinsischen und den extrinsischen Kameraparametern. Erstere hängen lediglich von der Beschaffenheit der Kamera ab und ändern sich nicht wenn die Kamera ihre Position im Raum ändert. Hierunter fallen die Brennweite der Kamera ("`Focal length'' in der oben stehenden Abbildung) sowie der Ursprung des Bildebenenkoordinatensystms. Außerdem wird hierüber eine Scherung des projizierten Bildes bestimmt. Die intrinsischen Parameter können als 
+
+\begin{equation}
+K = \begin{pmatrix}
+f_x & s & x_0 \\
+0 & f_y & y_0 \\
+0 & 0 & 1 
+\end{pmatrix}
+\end{equation}
+
+ in einer Matrix zusammengefasst werden, in welcher \(f_x\) und \(f_y\) für die Brennweite in Pixeln (bei perfekt quadratischen Pixeln gilt \(f_x = f_y\)), \(s\) für die Scherung und \(y_0\) sowie \(x_0\) für die Verschiebung des Bildkoordinatenursprung in \(X\)- und \(Y\)-Richtung in Pixeln stehen. 
 \newline
 Im Gegensatz dazu definieren die extrinsischen Parameter die Orientierung und die Position der Kamera im Weltkoordinatensystem. Entsprechend werden diese als eine Rotationsmatrix \(R\) und ein Ortsvektor \(T\) ausgedrückt. Dabei handelt es sich bei \(T\) jedoch nicht etwa um die Position der Kamera in Weltkoordinaten, sondern um den Ursprung des Weltkoordinatensystems welcher in dem Koordinatensystem ausgedrückt ist, dessen Ursprung in der Kamera liegt.
 \newline
@@ -33,7 +43,25 @@ wie folgt berechnen:
 
 \subsection{Die Kamera Kalibrierung}
 \label{subsec:KameraKalibrierungTheorie}
-TODO
-
+Um das Lichtschnittverfahren einzusetzen, müssen die internen und die externen Kameraparameter bekannt sein. Dies geschieht in einem Prozess namens Kamerakalibrierung. Dabei wird mit der Kamera ein bestimmtes Muster fotografiert, welches es besonders einfach macht, algorithmisch Punkte in dem Muster zu bestimmen. Ein üblicher Ansatz ist als ein solches Muster ein Schachbrettmuster mit einer bekannten Seitenlänge für die Quadrate zu verwenden. So wurde auch in der vorliegenden Arbeit verfahren. Dieses Muster legt in einem bestimmten Punkt den Koordinatenursprung des Weltkoordinatensystems fest und spannt zugleich die X-Y-Ebene auf. Durch die bekannte Seitenlänge können dann die Weltkoordinaten von weiteren Punkten im Muster bestimmt werden. Wenn die Kamera nun ein Bild des Musters gemacht hat, kann aus diesen Punkten eine Menge von Bildpunkten bestimmt werden, deren entsprechende Weltkoordinaten bekannt sind, und die alle auf der X-Y-Ebene liegen. Da sich in dieser Ebene die Z-Koordinate immer 0 beträgt, kann die Projektion dieser Punkte anstatt von einer Projektion vom 3D- in den 2D-Raum (wie bei anderen Punkten im Weltkoordinatensystem der Fall) als Projektion von einem 2D- in einen anderen 2D-Raum betrachtet werden. Man erhält eine projektive Transformation, auch Homografie genannt, anhand derer man die Parameter der internen und externen Parameter bestimmen kann. \newline
+Laut \cite{Zhang:00} und \cite{Rahmann} kann diese Homografie wie folgt bestimmt werden: Sei die Rotationsmatrix \(R = \left(\vec{r_1}\:\vec{r_2}\:\vec{r_3}\right)\) und die Translation \(T = \vec{t}\) dargestellt in ihren Spaltenvektoren. Unter der oben erläuterten Voraussetzung dass sich alle Punkte auf dem Kalibrierungsmuster (und damit auch auf der X-Y-Ebene) befinden gilt für einen solchen beliebigen Punkt \(x_{welt} = (X\:Y\:0\:1)^{T}\) und dessen Projektion auf die Bildebene \(x_{bild} = (U\:V\:1)^{T}\)
+\begin{equation}
+	x_{bild} = K\left(\:\vec{r_1}\:\vec{r_2}\:\vec{t}\:\right)x_{welt}
+\end{equation}
+Die Homografie \(H = \left(\vec{h_1}\:\vec{h_2}\:\vec{h_3}\right)\) ergibt sich dann als
+\begin{equation}
+	\left(\:\vec{h_1}\:\vec{h_2}\:\vec{h_3}\:\right) = \lambda K\left(\:\vec{r_1}\:\vec{r_2}\:\vec{t}\:\right)
+\end{equation}
+mit \(\lambda\) als Scalar. Es gilt also
+\begin{equation}
+r_1 = \lambda^{-1} K^{-1} h_1 \;\;,\;\; r_2 = \lambda^{-1} K^{-1} h_2
+\end{equation}
+Da für \(r_1\) und \(r_2\) gilt, dass sie orthogonal zueinander stehen (\(r_1^Tr_2=0\)) und normalisiert sind (\(\Vert r_1 \Vert = \Vert r_2 \Vert = 1\)) gilt:
+\begin{equation}
+	h_1^{T} K^{-T} K^{-1} h_2 = 0
+\end{equation}
+\begin{equation}
+	h_1^{T} K^{-T} K^{-1} h_1 = h_2^{T} K^{-T} K^{-1} h_2
+\end{equation}
 \section{Der Lichschnitt}
 TODO
