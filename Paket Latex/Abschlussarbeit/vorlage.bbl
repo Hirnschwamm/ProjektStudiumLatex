@@ -11,6 +11,11 @@
 \newblock \\
   {\url{http://chenlab.ece.cornell.edu/people/adarsh/publications/BackProjection.pdf}}.
 
+\bibitem[Kri07]{Kriegman:07}
+{\sc Kriegman, David}: {\em Homography Estimation}, 2007.
+\newblock
+  \\{\url{https://cseweb.ucsd.edu/classes/wi07/cse252a/homography_estimation/homography_estimation.pdf}}.
+
 \bibitem[Mata]{Mathworks:17a}
 {\em Single Camera Calibration App}.
 \newblock \\Matlab Dokumentation
