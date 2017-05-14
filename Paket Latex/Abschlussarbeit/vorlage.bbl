@@ -1,4 +1,4 @@
-\begin{thebibliography}{Ebr11}
+\begin{thebibliography}{Zha98}
 
 \bibitem[Ebr11]{Ebrahim:11}
 {\sc Ebrahim, Mostafa A-B}: {\em 3D Laser Scanners: History, Applications and
@@ -46,6 +46,10 @@
   triangulate function?}
 \newblock \\
   {\url{http://stackoverflow.com/questions/29095349/how-is-the-reprojection-error-calculated-in-matlabs-triangulate-function-sadly}}.
+
+\bibitem[Zha98]{Zhang:00}
+{\sc Zhang, Zhengyou}: {\em A Flexible New Technique for Camera Calibration}.
+\newblock \Btxvolumelong{}~22, December 1998.
 
 \bibitem[Zol16]{Zoller:16}
 {\em Zoller + Fröhlich GmbH - Forensik}, 2016.

@@ -45,9 +45,9 @@ wie folgt berechnen:
 \label{subsec:KameraKalibrierungTheorie}
 
 \subsubsection{Das Kalibrierungsmuster}
-Um das Lichtschnittverfahren einzusetzen, müssen die internen und die externen Kameraparameter bekannt sein. Dies geschieht in einem Prozess namens Kamerakalibrierung. Dabei wird mit der Kamera ein bestimmtes Muster fotografiert, welches es besonders einfach macht, algorithmisch Punkte in diesem Muster zu bestimmen. Ein üblicher Ansatz ist es, als ein solches Muster ein Schachbrettmuster mit einer bekannten Seitenlänge für die einzelnen Quadrate zu verwenden. So wurde auch in der vorliegenden Arbeit verfahren. Dieses Muster legt in einem bestimmten Punkt den Koordinatenursprung des Weltkoordinatensystems fest und spannt zugleich die X-Y-Ebene auf. Durch die bekannte Seitenlänge können dann die Weltkoordinaten von weiteren Punkten im Muster bestimmt werden. Wenn die Kamera nun ein Bild des Musters gemacht hat, kann aus diesen Punkten eine Menge von Bildpunkten bestimmt werden, deren entsprechende Weltkoordinaten bekannt sind, und die alle auf der X-Y-Ebene liegen. 
+Um das Lichtschnittverfahren einzusetzen, müssen die internen und die externen Kameraparameter bekannt sein. Die Berechnung dieser Parameter geschieht in einem Prozess namens Kamerakalibrierung. Dabei wird mit der Kamera ein bestimmtes Muster fotografiert, welches es besonders einfach macht, algorithmisch Punkte in diesem Muster zu bestimmen. Ein üblicher Ansatz ist es, als ein solches Muster ein Schachbrettmuster mit einer bekannten Seitenlänge für die einzelnen Quadrate zu verwenden. So wurde auch in der vorliegenden Arbeit verfahren. Dieses Muster legt in einem bestimmten Punkt den Koordinatenursprung des Weltkoordinatensystems fest und spannt zugleich die X-Y-Ebene auf. Durch die bekannte Seitenlänge können dann die Weltkoordinaten von weiteren Punkten im Muster bestimmt werden. Wenn die Kamera nun ein Bild des Musters gemacht hat, kann aus diesen Punkten eine Menge von Bildpunkten bestimmt werden, deren entsprechende Weltkoordinaten bekannt sind, und die alle auf der X-Y-Ebene liegen. 
 
-\subsubsection{Homographie}
+\subsubsection{Berechnung einer Homographie}
 Alle Punkte, die im Kalibrierungsmuster erkannt wurden, befinden sich wie oben beschrieben auf der X-Y-Ebene. Für sie lässt sich also die Z-Koordinate auf null setzen. Die Projektion dieser Punkte vom Weltkoordinatensystem in die Bildebene kann also anstatt von einer Projektion vom 3D- in den 2D-Raum (wie bei anderen Punkten im Weltkoordinatensystem der Fall) als Projektion von einem 2D- in einen anderen 2D-Raum betrachtet werden. Eine solche Projektion kann als invertierbare projektive Transformation in Form einer Transformationsmatrix ausgedrückt werden. Transformationen dieser Art werden auch als Homographie bezeichnet und meistens mit \(H\) notiert. Aus einer einzelnen Fotografie des Kalibrierungsmusters kann eine solche Homographie \(H\) berechnet werden, indem die daraus resultierenden Korrespondenzen zwischen Punkten im Weltkoordinatensystem und ihren Projektionen auf der Bildeben betrachtet werden. Die Berechnung, welche angepasst aus \cite{Kriegman:07} übernommen wurde, läuft wie folgt ab:
 \newline
 Seien \(\vec{x_w} = \left(x_w y_w z_w\right)^{T}\) ein Punkt auf der Kalibrierungsmusterebene und \(\vec{x_b} = \left(x_b y_b z_b\right)^{T}\) ein Punkt auf der Bildebene, beide in homogenen Koordinaten. Dann gilt für die Homographie \(H\), dargestellt als \(3\times 3\)-Matrix:
@@ -93,27 +93,63 @@ Nun sind alle Elemente  vorhanden um das lineare Gleichungssystem, mit dem wir \
 \begin{equation}
 	A\vec{h} = 0
 \end{equation}
-Die Homographie \(H\) kann mit jedem Skalierungsfaktor größer null multipliziert werden ohne dass die Transformation sich ändert, das heißt sie besitzt 8 Freiheitsgrade. Es reichen also mindestens 4 Punktkorrespondenzen aus damit das Gleichungssystem eindeutig für \(\vec{h}\) gelöst werden kann. 
+Da die Homographie \(H\) mit jedem Skalierungsfaktor größer null multipliziert werden kann ohne dass sich die Transformation ändert, besitzt sie 8 Freiheitsgrade. Es reichen also mindestens 4 Punktkorrespondenzen aus damit das Gleichungssystem eindeutig für \(\vec{h}\) gelöst werden kann. 
 
 \subsubsection{Bestimmung der Kameraparameter}
-Sei die Rotationsmatrix \(R = \left(\vec{r_1}\:\vec{r_2}\:\vec{r_3}\right)\) und die Translation \(T = \vec{t}\) dargestellt in ihren Spaltenvektoren. Unter der oben erläuterten Voraussetzung dass sich alle Punkte auf dem Kalibrierungsmuster (und damit auch auf der X-Y-Ebene) befinden gilt für einen solchen beliebigen Punkt \(x_{welt} = (X\:Y\:0\:1)^{T}\) und dessen Projektion auf die Bildebene \(x_{bild} = (U\:V\:1)^{T}\)
+Aus jedem Bild des Kalibrierungsmusters kann also wie im vorangehenden Absatz beschrieben eine Homographie \(H\) berechnet werden. Nach \cite{Zhang:00} und \cite{Rahmann} können die Kameraparameter nun mittels dreier solcher Homographien wie folgt berechnet werden: 
+\newline
+Sei die Rotationsmatrix \(R = \left(\vec{r_1}\:\vec{r_2}\:\vec{r_3}\right)\) und die Translation \(T = \vec{t}\) der Kameramatrix dargestellt in ihren Spaltenvektoren. Für alle Punkte, aus denen eine bekannte Homographie \(H\) berechnet wurde, gilt, dass sie sich auf dem Kalibrierungsmuster (und damit auch auf der X-Y-Ebene) befinden. Daraus folgt, dass für jeden dieser Punkte \(\vec{x_{w}} = (X\:Y\:0\:1)^{T}\) und dessen Projektion auf die Bildebene \(\vec{x_{b}} = (U\:V\:1)^{T}\) gilt:
 \begin{equation}
-	x_{bild} = K\left(\:\vec{r_1}\:\vec{r_2}\:\vec{t}\:\right)x_{welt}
+	\vec{x_{b}} = K\left(\:\vec{r_1}\:\vec{r_2}\:\vec{t}\:\right)\vec{x_{w}}
 \end{equation}
-Die Homografie \(H = \left(\vec{h_1}\:\vec{h_2}\:\vec{h_3}\right)\) ergibt sich dann als
+Man beachte Ähnlichkeit zu Gleichung \ref{equ:homographie1}. Für die Homographie  \(H = \left(\vec{h_1}\:\vec{h_2}\:\vec{h_3}\right)\), dargestellt in ihren Spaltenvektoren, ergibt sich dann:
 \begin{equation}
+\label{equ:kameraparam3}
 	\left(\:\vec{h_1}\:\vec{h_2}\:\vec{h_3}\:\right) = \lambda K\left(\:\vec{r_1}\:\vec{r_2}\:\vec{t}\:\right)
 \end{equation}
-mit \(\lambda\) als Scalar. Es gilt also
+mit \(\lambda\) als Skalar. Stellt man diese Gleichung geeignet um, ergibt sich für \(\vec{r_1}\) und \(\vec{r_2}\)
 \begin{equation}
-r_1 = \lambda^{-1} K^{-1} h_1 \;\;,\;\; r_2 = \lambda^{-1} K^{-1} h_2
+\vec{r_1} = \lambda^{-1} K^{-1}\vec{h_1} \;\;,\;\; \vec{r_2} = \lambda^{-1} K^{-1} \vec{h_2}
 \end{equation}
-Da für \(r_1\) und \(r_2\) gilt, dass sie orthogonal zueinander stehen (\(r_1^Tr_2=0\)) und normalisiert sind (\(\Vert r_1 \Vert = \Vert r_2 \Vert = 1\)) gilt:
+Da für \(r_1\) und \(r_2\) gilt, dass sie orthogonal zueinander stehen (\(r_1^Tr_2=0\)) und normalisiert sind (\(\Vert r_1 \Vert = \Vert r_2 \Vert = 1\)), gilt:
 \begin{equation}
+\label{equ:kameraparam1}
 	h_1^{T} K^{-T} K^{-1} h_2 = 0
 \end{equation}
 \begin{equation}
+\label{equ:kameraparam2}
 	h_1^{T} K^{-T} K^{-1} h_1 = h_2^{T} K^{-T} K^{-1} h_2
 \end{equation}
+Man erhält so zwei Bedingungen für die interne Kameramatrix \(K\). Möchte man alle fünf internen Kameraparameter bestimmen, sind also drei Homographien notwendig. Geht man davon aus, dass keine Scherung bei der Bildprojektion auftritt, kann auch mit zwei Homographien gearbeitet werden. Um die Bedingungen für \(K\) nun in die Form eines lösbaren linearen Gleichungssystems gießen zu können, sind einige weitere Definitionen von Nöten. Sei die Matrix \(B\) definiert als
+\begin{equation}
+	B = K^{-T}K^{-1} = \begin{pmatrix}
+			B_{11} & B_{12} & B_{13} \\
+			B_{21} & B_{22} & B_{23} \\
+			B_{31} & B_{32} & B_{33}
+		\end{pmatrix}
+\end{equation}
+mit einem zusammenfassenden Vektor
+\begin{equation}
+	\vec{b} = \left( B_{11}, B_{12}, B_{13}, B_{22}, B_{23}, B_{33} \right)^T
+\end{equation}
+Schreibt man nun den \(i\)-ten Spaltenvektor von \(H\) mit \(\vec{h_i} = \left( h_{i1}, h_{i2}, h_{j3} \right)^T\) lässt sich folgender Vektor 
+\begin{equation}
+	\vec{v_{ij}} = \left( h_{i1}h_{j1}, h_{i1}h_{j2}+h_{i2}h_{j1}, h_{i2}h_{j2},h_{i3}h_{j1}+h_{i1}h_{j3}, h_{i3}h_{j2}+h_{i2}h_{j3},h_{i3}h_{j3}\right)^T
+\end{equation}
+definieren. Die Bedingungen aus Gleichung \ref{equ:kameraparam1} und \ref{equ:kameraparam2} lassen sich dann in folgender Form aufstellen:
+\begin{equation}
+	\left( \begin{array}{c}\vec{v_{12}}^T\\\vec{v_{11}}^T - \vec{v_{22}}^T\end{array} \right)\vec{b} = 0
+\end{equation}
+Mit zwei anderen Homographien kann man dann eine \(6 \times 6\)-Matrix \(V\) durch Übereinanderstaplung von der entsprechenden \(\vec{v}\)-Vektoren, mit der sich dann folgendes eindeutig lösbare lineare Gleichungssystem ausdrücken lässt:
+\begin{equation}
+	V\vec{b} = 0
+\end{equation}
+Ist das Gleichungssystem gelöst und \(B\) durch \(\vec{b}\) bestimmt, kann man mittels einer Cholesky-Faktorisierung und einer Invertierung \(K\) bestimmen. Die externen Kameraparameter können für jede Aufnahme dann unter Anwendung der Gleichung \ref{equ:kameraparam3} für \(\lambda = \Vert K^{-1}\vec{h_1} \Vert\) folgendermaßen berechnet werden:
+\begin{gather}
+	\left(\vec{r_1},\vec{r_2},\vec{t}\right) = K^{-1}H \backslash \Vert K^{-1}\vec{h_1} \Vert \\
+	\vec{r_3} = \vec{r_1} \times \vec{r_2}
+\end{gather}
+Auch wenn alle in diesem Kapitel aufgeführten linearen Gleichungssysteme theoretisch rein linear gelöst werden können, ist dies in der Praxis keine durchführbare Lösung, da durch Rauschen während der Messung keine brauchbaren Ergebnisse heraus kommen würden. Vielmehr wird ein Algorithmus angewandt, in dem das Problem als Minimierungsproblem formuliert wird und mittels der Minimum-Likelihood-Methode gelöst wird. Die Details dieses Ansatzes liegen jedoch außerhalb des Zuständigkeitsbereichs dieses Kapitels und können unter anderem bei \cite{Zhang:00} nachgelesen werden. Dort kann auch eingesehen werden wie mit Linsenverzerrung umgegangen wird, welche im hier beschriebenen Lösungsverfahren der Einfachheit halber ausgelassen wurde.
+
 \section{Der Lichschnitt}
 TODO
