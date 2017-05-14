@@ -146,7 +146,7 @@ Mit zwei anderen Homographien kann man dann eine \(6 \times 6\)-Matrix \(V\) dur
 \end{equation}
 Ist das Gleichungssystem gelöst und \(B\) durch \(\vec{b}\) bestimmt, kann man mittels einer Cholesky-Faktorisierung und einer Invertierung \(K\) bestimmen. Die externen Kameraparameter können für jede Aufnahme dann unter Anwendung der Gleichung \ref{equ:kameraparam3} für \(\lambda = \Vert K^{-1}\vec{h_1} \Vert\) folgendermaßen berechnet werden:
 \begin{gather}
-	\left(\vec{r_1},\vec{r_2},\vec{t}\right) = K^{-1}H \backslash \Vert K^{-1}\vec{h_1} \Vert \\
+	\left(\vec{r_1},\vec{r_2},\vec{t}\right) = K^{-1}H \slash \Vert K^{-1}\vec{h_1} \Vert \\
 	\vec{r_3} = \vec{r_1} \times \vec{r_2}
 \end{gather}
 Auch wenn alle in diesem Kapitel aufgeführten linearen Gleichungssysteme theoretisch rein linear gelöst werden können, ist dies in der Praxis keine durchführbare Lösung. Durch Rauschen während der Messung würden keine brauchbaren Ergebnisse heraus kommen. Vielmehr wird ein Algorithmus angewandt, in dem das Problem als Minimierungsproblem formuliert und mittels der Minimum-Likelihood-Methode gelöst wird. Die Details dieses Ansatzes liegen jedoch außerhalb des Zuständigkeitsbereichs dieses Kapitels und können unter anderem bei \cite{Zhang:00} nachgelesen werden. Dort kann auch eingesehen werden wie mit Linsenverzerrung umgegangen wird, welche im hier beschriebenen Lösungsverfahren der Einfachheit halber ausgelassen wurde.
