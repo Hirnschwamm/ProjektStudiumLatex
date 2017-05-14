@@ -41,7 +41,7 @@ wie folgt berechnen:
 \end{equation}
 
 
-\subsection{Die Kamera Kalibrierung}
+\subsection{Die Kamerakalibrierung}
 \label{subsec:KameraKalibrierungTheorie}
 
 \subsubsection{Das Kalibrierungsmuster}
@@ -50,26 +50,53 @@ Um das Lichtschnittverfahren einzusetzen, müssen die internen und die externen 
 \subsubsection{Homographie}
 Alle Punkte, die im Kalibrierungsmuster erkannt wurden, befinden sich wie oben beschrieben auf der X-Y-Ebene. Für sie lässt sich also die Z-Koordinate auf null setzen. Die Projektion dieser Punkte vom Weltkoordinatensystem in die Bildebene kann also anstatt von einer Projektion vom 3D- in den 2D-Raum (wie bei anderen Punkten im Weltkoordinatensystem der Fall) als Projektion von einem 2D- in einen anderen 2D-Raum betrachtet werden. Eine solche Projektion kann als invertierbare projektive Transformation in Form einer Transformationsmatrix ausgedrückt werden. Transformationen dieser Art werden auch als Homographie bezeichnet und meistens mit \(H\) notiert. Aus einer einzelnen Fotografie des Kalibrierungsmusters kann eine solche Homographie \(H\) berechnet werden, indem die daraus resultierenden Korrespondenzen zwischen Punkten im Weltkoordinatensystem und ihren Projektionen auf der Bildeben betrachtet werden. Die Berechnung, welche angepasst aus \cite{Kriegman:07} übernommen wurde, läuft wie folgt ab:
 \newline
-Seien \(\vec{x_w} = \left(x_w y_w z_w\right)^{T}\) ein Punkt auf der Kalibrierungsmusterebene und \(\vec{x_b} = \left(x_b y_b z_b\right)^{T}\) ein Punkt auf der Bildebene, beide in homogenen Koordinaten. Dann gilt für die Homographie \(H\):
+Seien \(\vec{x_w} = \left(x_w y_w z_w\right)^{T}\) ein Punkt auf der Kalibrierungsmusterebene und \(\vec{x_b} = \left(x_b y_b z_b\right)^{T}\) ein Punkt auf der Bildebene, beide in homogenen Koordinaten. Dann gilt für die Homographie \(H\), dargestellt als \(3\times 3\)-Matrix:
 \begin{equation}
-	H = \begin{pmatrix}
-			H_{11} & H_{12} & H_{13} \\
-			H_{21} & H_{22} & H_{23} \\
-			H_{31} & H_{32} & H_{33}
-		\end{pmatrix}
-\end{equation}
-\begin{equation}
+\label{equ:homographie1}
 	\left(\begin{array}{c}x_b\\y_b\\z_b\end{array}\right) =  \begin{pmatrix}
 			H_{11} & H_{12} & H_{13} \\
 			H_{21} & H_{22} & H_{23} \\
 			H_{31} & H_{32} & H_{33}
 		\end{pmatrix} * \left(\begin{array}{c}x_w\\y_w\\z_w\end{array}\right)
 \end{equation}
+Um homogene Koordinaten in ihr inhomogene Entsprechung umzuwandeln, werden sie durch die Koordinate der hinzugefügten Dimension geteilt. Es gilt für die entsprechenden inhomogenen Koordinaten \(x_b\prime\) und \(y_b\prime\) also:
+\begin{equation}
+\label{equ:homographie2}
+	x_b\prime = \frac{x_b}{z_b} \;\;,\;\; x_b\prime = \frac{y_b}{z_b}
+\end{equation} 
+Sei nun o.B.d.A. \(z_w = 1\). Aus den Gleichungen \ref{equ:homographie1} und \ref{equ:homographie2} folgt dann:
+\begin{gather}
+\label{equ:homographie3}
+	x_b\prime = \frac{H_{11}x_w + H_{12}y_w + H_{13}}{H_{31}x_w + H_{32}y_w + H_{33}} \Leftrightarrow \\
+	x_b\prime \left( H_{11}x_w + H_{12}y_w + H_{13} \right) = H_{31}x_w + H_{32}y_w + H_{33}\Leftrightarrow \\
+	x_b\prime \left( H_{11}x_w + H_{12}y_w + H_{13} \right) - \left( H_{31}x_w + H_{32}y_w + H_{33}\right) = 0
+\end{gather}
 
+\begin{gather}
+\label{equ:homographie4}
+	y_b\prime = \frac{H_{21}x_w + H_{22}y_w + H_{23}}{H_{31}x_w + H_{32}y_w + H_{33}} \Leftrightarrow \\
+	y_b\prime \left( H_{21}x_w + H_{22}y_w + H_{23} \right) = H_{31}x_w + H_{32}y_w + H_{33}\Leftrightarrow \\
+	y_b\prime \left( H_{21}x_w + H_{22}y_w + H_{23} \right) - \left( H_{31}x_w + H_{32}y_w + H_{33} \right) = 0
+\end{gather}
 
+Seien nun die Vektoren \(\vec{h}\), \(\vec{a_x}\), \(\vec{a_y}\) definiert als:
+\begin{gather}
+	\vec{h} = \left( H_{11}, H_{12}, H_{13}, H_{21}, H_{22}, H_{23}, H_{31}, H_{32}, H_{33} \right)^{T} \\
+	\vec{a_x} = \left( -x_w, -y_w, -1, 0, 0, 0, x_b\prime x_w, x_b\prime y_w, x_b\prime \right)^{T} \\
+	\vec{a_y} = \left( 0, 0, 0, -x_w, -y_w, -1, y_b\prime x_w, y_b\prime y_w, y_b\prime \right)^{T}
+\end{gather}
+Man kann \(\vec{a_{x}}\) und \(\vec{a_{y}}\) also aus einer Punktkorrespondenz von Weltkoordinaten zu Bildebenenkoordinaten bilden. Seien nun \(\vec{a_{xn}}\) und \(\vec{a_{yn}}\) die Vektoren die aus der \(n\)-ten Punktkorrespondenz gebildet wurden. Dann lässt sich eine Matrix \(A\) definieren mit:
+\begin{equation}
+	A = \left( \vec{a_{x1}}^{T}, \vec{a_{y1}}^{T}, \cdots , \vec{a_{xN}}^{T}, \vec{a_{yN}}^{T} \right)
+\end{equation}
+Nun sind alle Elemente  vorhanden um das lineare Gleichungssystem, mit dem wir \(H\) berechnen können, aufzustellen:
+\begin{equation}
+	A\vec{h} = 0
+\end{equation}
+Die Homographie \(H\) kann mit jedem Skalierungsfaktor größer null multipliziert werden ohne dass die Transformation sich ändert, das heißt sie besitzt 8 Freiheitsgrade. Es reichen also mindestens 4 Punktkorrespondenzen aus damit das Gleichungssystem eindeutig für \(\vec{h}\) gelöst werden kann. 
 
-\subsubsection{Bestimmung der Kameraparamter}
-Laut \cite{Zhang:00} und \cite{Rahmann} kann diese Homografie wie folgt bestimmt werden: Sei die Rotationsmatrix \(R = \left(\vec{r_1}\:\vec{r_2}\:\vec{r_3}\right)\) und die Translation \(T = \vec{t}\) dargestellt in ihren Spaltenvektoren. Unter der oben erläuterten Voraussetzung dass sich alle Punkte auf dem Kalibrierungsmuster (und damit auch auf der X-Y-Ebene) befinden gilt für einen solchen beliebigen Punkt \(x_{welt} = (X\:Y\:0\:1)^{T}\) und dessen Projektion auf die Bildebene \(x_{bild} = (U\:V\:1)^{T}\)
+\subsubsection{Bestimmung der Kameraparameter}
+Sei die Rotationsmatrix \(R = \left(\vec{r_1}\:\vec{r_2}\:\vec{r_3}\right)\) und die Translation \(T = \vec{t}\) dargestellt in ihren Spaltenvektoren. Unter der oben erläuterten Voraussetzung dass sich alle Punkte auf dem Kalibrierungsmuster (und damit auch auf der X-Y-Ebene) befinden gilt für einen solchen beliebigen Punkt \(x_{welt} = (X\:Y\:0\:1)^{T}\) und dessen Projektion auf die Bildebene \(x_{bild} = (U\:V\:1)^{T}\)
 \begin{equation}
 	x_{bild} = K\left(\:\vec{r_1}\:\vec{r_2}\:\vec{t}\:\right)x_{welt}
 \end{equation}
