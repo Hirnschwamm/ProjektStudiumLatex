@@ -149,7 +149,8 @@ L_{auto} = \lbrace (c,r) \in C \times R \mid \forall c\colon \ r = LineRow(c) \w
 
 Da sich aus verschiedenen Gründen nicht immer zur Gänze darauf verlassen werden kann, dass die Segmentierung die Laserlinie in ihrer  Gesamtheit erfasst wird (vgl. Abschnitt \ref{subsec:segmentierung}), kann es sein, dass eine verzerrte Version der Laserlinie berechnet wird, wenn lediglich das segmentierte Bild als Basis für \(L_{auto}\) herangezogen wird. Daher wird der Prozess zweimal durchgeführt: Zuerst wird eine Annäherung \(L_{auto}\prime\) mit dem segmentierten Bild berechnet. Anschließend werden in jeder Pixelspalte der approximierten Linie die Rotwerte des unmaskierten Bildes in einem festgelegten Abstand oberhalb und unterhalb des aktuellen Reihenindex wieder "`eingeblendet'', wobei die Pixel außerhalb dieses Bereichs jedoch nach wie vor geschwärzt bleiben. Diese neue Segmentierung wird nun als Basis für die Berechnung von \(L_{auto}\) herangezogen, welche wie durch Gleichung \ref{equ:LAuto} beschrieben bestimmt wird. Dies führt zu einer genaueren Annäherung an die Optimallinie und einem generell "`weicheren'' Verlauf der extrahierten Pixellinie (siehe Abb. \ref{fig:LaserLinieExtraktion}). \(L_{auto}\) stellt die Bildkoordinaten der projizierten Laserlinie dar aufgrund derer im folgenden Verlauf des Scanvorgangs die Weltkoordinaten berechnet werden.
 
-\subsubsection{Berechnung der Weltkoordinaten}
+\subsection{Berechnung der Weltkoordinaten}
+\label{subsec:weltkoordinaten}
 Am Ende des Scanvorgangs steht die Berechnung der Weltkoordinaten. Hier werden für jedes aufgenommene Bild die Bildkoordinaten der in Schritt \ref{subsec:LaserLinieBestimmung} bestimmten Pixellinie \(L_{auto}\) wie folgt umgerechnet. Sei 
 \begin{equation}
 \vec{p_{Bild}} = \left(\begin{array}{c}x\\y\end{array}\right)

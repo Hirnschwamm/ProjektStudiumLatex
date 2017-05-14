@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.5.3)  14 MAY 2017 20:09
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.5.3)  14 MAY 2017 20:53
 entering extended mode
 **vorlage.tex
 
@@ -1023,7 +1023,7 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 106.
 Package epstopdf Info: Output file is already uptodate.
 
-<Logo_Hauptcampus_Informatik-eps-converted-to.pdf, id=75, 812.03375pt x 157.588
+<Logo_Hauptcampus_Informatik-eps-converted-to.pdf, id=79, 812.03375pt x 157.588
 75pt>
 File: Logo_Hauptcampus_Informatik-eps-converted-to.pdf Graphic file (type pdf)
  <use Logo_Hauptcampus_Informatik-eps-converted-to.pdf>
@@ -1078,7 +1078,7 @@ Kapitel 1.
 ("C:\Users\David\Documents\Hochschule\Projektstudium\latex\Paket Latex\Abschlus
 sarbeit\chapters/DasVerfahrenInDerTheorie.tex" [2]
 Kapitel 2.
-<images/lochkamera.png, id=160, 286.82156pt x 143.03438pt>
+<images/lochkamera.png, id=165, 286.82156pt x 143.03438pt>
 File: images/lochkamera.png Graphic file (type png)
 
 <use images/lochkamera.png>
@@ -1093,19 +1093,19 @@ sarbeit/images/lochkamera.png>] [4] [5] [6]
 ("C:\Users\David\Documents\Hochschule\Projektstudium\latex\Paket Latex\Abschlus
 sarbeit\chapters/Implementierung.tex" [8]
 Kapitel 3.
-<images/Scanner1.jpg, id=243, 3276.24pt x 2457.18pt>
+<images/Scanner1.jpg, id=249, 3276.24pt x 2457.18pt>
 File: images/Scanner1.jpg Graphic file (type jpg)
  <use images/Scanner1.jpg>
 Package pdftex.def Info: images/Scanner1.jpg used on input line 11.
 (pdftex.def)             Requested size: 188.21288pt x 141.12553pt.
 
-<images/Scanner2.jpg, id=244, 3276.24pt x 2457.18pt>
+<images/Scanner2.jpg, id=250, 3276.24pt x 2457.18pt>
 File: images/Scanner2.jpg Graphic file (type jpg)
  <use images/Scanner2.jpg>
 Package pdftex.def Info: images/Scanner2.jpg used on input line 15.
 (pdftex.def)             Requested size: 188.21288pt x 141.12553pt.
 
-<images/Scanner3.jpg, id=245, 3276.24pt x 2457.18pt>
+<images/Scanner3.jpg, id=251, 3276.24pt x 2457.18pt>
 File: images/Scanner3.jpg Graphic file (type jpg)
  <use images/Scanner3.jpg>
 Package pdftex.def Info: images/Scanner3.jpg used on input line 21.
@@ -1118,7 +1118,7 @@ Package pdftex.def Info: images/Scanner3.jpg used on input line 21.
 chlussarbeit/images/Scanner1.jpg> <C:/Users/David/Documents/Hochschule/Projekts
 tudium/latex/Paket Latex/Abschlussarbeit/images/Scanner2.jpg> <C:/Users/David/D
 ocuments/Hochschule/Projektstudium/latex/Paket Latex/Abschlussarbeit/images/Sca
-nner3.jpg>] <images/ScannerVerfahren.pdf, id=258, 297.11pt x 606.265pt>
+nner3.jpg>] <images/ScannerVerfahren.pdf, id=264, 297.11pt x 606.265pt>
 File: images/ScannerVerfahren.pdf Graphic file (type pdf)
 
 <use images/ScannerVerfahren.pdf>
@@ -1134,7 +1134,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 86--90
 
  []
 
-[14] <images/LineDistance.pdf, id=325, 709.65125pt x 345.29pt>
+[14] <images/LineDistance.pdf, id=331, 709.65125pt x 345.29pt>
 File: images/LineDistance.pdf Graphic file (type pdf)
 
 <use images/LineDistance.pdf>
@@ -1142,7 +1142,7 @@ Package pdftex.def Info: images/LineDistance.pdf used on input line 114.
 (pdftex.def)             Requested size: 418.25368pt x 203.50858pt.
  [15 <C:/Users/David/Documents/Hochschule/Projektstudium/latex/Paket Latex/Absc
 hlussarbeit/images/LineDistance.pdf>]
-<images/Segmentierung.pdf, id=344, 317.185pt x 638.385pt>
+<images/Segmentierung.pdf, id=350, 317.185pt x 638.385pt>
 File: images/Segmentierung.pdf Graphic file (type pdf)
 
 <use images/Segmentierung.pdf>
@@ -1156,7 +1156,7 @@ Kapitel 4.
 [19
 
 
-] <images/Colour.pdf, id=405, 477.99577pt x 601.45204pt>
+] <images/Colour.pdf, id=410, 477.99577pt x 601.45204pt>
 File: images/Colour.pdf Graphic file (type pdf)
 
 <use images/Colour.pdf>
@@ -1164,7 +1164,7 @@ Package pdftex.def Info: images/Colour.pdf used on input line 14.
 (pdftex.def)             Requested size: 418.25368pt x 526.30595pt.
  [20] [21 <C:/Users/David/Documents/Hochschule/Projektstudium/latex/Paket Latex
 /Abschlussarbeit/images/Colour.pdf>]
-<images/Messung.pdf, id=465, 814.1005pt x 610.26996pt>
+<images/Messung.pdf, id=470, 814.1005pt x 610.26996pt>
 File: images/Messung.pdf Graphic file (type pdf)
 
 <use images/Messung.pdf>
@@ -1285,7 +1285,7 @@ sarbeit\vorlage.aux")
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 140.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 140.
 Package rerunfilecheck Info: File `vorlage.out' has not changed.
-(rerunfilecheck)             Checksum: 472B664C1A5ABFD6BE2D348250DCFA63;1201.
+(rerunfilecheck)             Checksum: 1B75100A448032A337BCE56FA423F9FA;1286.
 
 
 LaTeX Warning: There were undefined references.
@@ -1293,10 +1293,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 140.
  ) 
 Here is how much of TeX's memory you used:
- 11213 strings out of 493921
- 160685 string characters out of 3147283
- 284191 words of memory out of 3000000
- 14147 multiletter control sequences out of 15000+200000
+ 11215 strings out of 493921
+ 160733 string characters out of 3147283
+ 283256 words of memory out of 3000000
+ 14149 multiletter control sequences out of 15000+200000
  11372 words of font info for 44 fonts, out of 3000000 for 9000
  846 hyphenation exceptions out of 8191
  42i,10n,32p,2271b,473s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1316,9 +1316,9 @@ s/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/e
 urosym/feymr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/sym
 bols/msbm10.pfb>
-Output written on vorlage.pdf (30 pages, 8118095 bytes).
+Output written on vorlage.pdf (30 pages, 8120517 bytes).
 PDF statistics:
- 613 PDF objects out of 1000 (max. 8388607)
+ 618 PDF objects out of 1000 (max. 8388607)
  125 named destinations out of 1000 (max. 500000)
- 195 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 203 words of extra memory for PDF output out of 10000 (max. 10000000)
 

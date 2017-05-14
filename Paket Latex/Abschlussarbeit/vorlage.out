@@ -11,8 +11,9 @@
 \BOOKMARK [2][-]{subsection.3.2.3}{Farbkalibrierung}{section.3.2}% 11
 \BOOKMARK [2][-]{subsection.3.2.4}{Kalibrierung der externen Kameraparameter}{section.3.2}% 12
 \BOOKMARK [2][-]{subsection.3.2.5}{Bestimmung der Laserlinie}{section.3.2}% 13
-\BOOKMARK [0][-]{chapter.4}{Ergebnisse}{}% 14
-\BOOKMARK [1][-]{section.4.1}{Laserlinienbestimmung}{chapter.4}% 15
-\BOOKMARK [1][-]{section.4.2}{Messgenauigkeit}{chapter.4}% 16
-\BOOKMARK [0][-]{chapter.5}{Fazit}{}% 17
-\BOOKMARK [0][-]{chapter*.9}{Literaturverzeichnis}{}% 18
+\BOOKMARK [2][-]{subsection.3.2.6}{Berechnung der Weltkoordinaten}{section.3.2}% 14
+\BOOKMARK [0][-]{chapter.4}{Ergebnisse}{}% 15
+\BOOKMARK [1][-]{section.4.1}{Laserlinienbestimmung}{chapter.4}% 16
+\BOOKMARK [1][-]{section.4.2}{Messgenauigkeit}{chapter.4}% 17
+\BOOKMARK [0][-]{chapter.5}{Fazit}{}% 18
+\BOOKMARK [0][-]{chapter*.8}{Literaturverzeichnis}{}% 19
