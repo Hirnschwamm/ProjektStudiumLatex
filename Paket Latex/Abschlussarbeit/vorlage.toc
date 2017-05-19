@@ -16,7 +16,7 @@
 \contentsline {subsection}{\numberline {3.2.3}Schwellwertbestimmung}{14}{subsection.3.2.3}
 \contentsline {subsection}{\numberline {3.2.4}Kalibrierung der externen Kameraparameter}{17}{subsection.3.2.4}
 \contentsline {subsection}{\numberline {3.2.5}Bestimmung der Laserlinie}{17}{subsection.3.2.5}
-\contentsline {subsection}{\numberline {3.2.6}Berechnung der Weltkoordinaten}{18}{subsection.3.2.6}
+\contentsline {subsection}{\numberline {3.2.6}Berechnung der Weltkoordinaten}{19}{subsection.3.2.6}
 \contentsline {chapter}{\numberline {4}Ergebnisse}{21}{chapter.4}
 \contentsline {section}{\numberline {4.1}Laserlinienbestimmung}{21}{section.4.1}
 \contentsline {section}{\numberline {4.2}Messgenauigkeit}{22}{section.4.2}

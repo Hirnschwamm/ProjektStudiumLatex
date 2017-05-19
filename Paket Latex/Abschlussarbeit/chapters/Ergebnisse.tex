@@ -11,8 +11,8 @@ In der vorliegenden Implementierung wurde nun anstatt eines RGB- ein YCbCr-Grenz
 Ohne eine lokale Betrachtung der Bilddaten lässt sich mit einem globalen Ansatz die Segmentierung der Laserlinie also nicht zur  Gänze beseitigen. Daher wird in der vorliegenden Implementierung wie in \ref{subsec:LaserLinieBestimmung} beschrieben darauf gesetzt, nach einer groben Lokalisierung auf Basis dieser ersten Segmentierung eine feinere Bestimmung auf Basis der umliegenden unsegmentierten Pixeldaten vorzunehmen. So wird der Nachteil eines globalen Farbgrenzwertes abgeschwächt ohne zu viel Komplexität hinzuzufügen. Die Ergebnisse der Laserlinienbestimmung bewegen sich dank dieses Ansatzes in einem akzeptablen Fehlerraum. In \ref{fig:LaserLinieExtraktion} ist eine mit dem Verfahren erkannte Laserlinie zu sehen, welche neben einem vom Benutzer vorgenommenen Goldstandard und vor dem Hintergrund des betreffenden Bildes dargestellt ist. Der Cr-Grenzwert der in diesem Beispiel gewählt wurde ist durch dass Verfahren ermittelt worden, welches in \ref{subsec:Farbkalibrierung} beschrieben wurde. Die Distanz zwischen der optimalen und der ermittelten Linie beträgt \(5.0443\) Pixel.
 
 \begin{figure}
-\centering \includegraphics[width=\textwidth]{images/Colour.pdf}
-\caption[Farbkanäle einer einzelnen Bildspalte]{Farbkanäle einer einzelnen Bildspalte}\label{fig:farbwerte}
+\centering \includegraphics[width=\textwidth]{images/ColorAugmented4.pdf}
+\caption[Farbkanäle einer einzelnen Bildspalte]{Farbkanäle der 701. Bildspalte des oberen Bildes aus Abb. \ref{fig:LaserLinieExtraktion}. Die vergrößerten Ausschnitte zeigen den Abschnitt genauer, auf dem sich die Laserlinie (die Bildzeilen von ca. 373 bis 383) befindet. Es ist zu erkennen, dass sich mit einem Minimalschwellwert im Rotkanal nicht alle Pixel außerhalb der Laserlinie aussortieren lassen: In den Bildzeilen von 500 bis ca. 650 sind zum Beispiel ebenfalls hohe Rotanteile. Die auf diese Weise nicht erfassten Pixel mit einem Maximalschwellwert im Blaukanal auszusortieren würde wiederum auch die Pixel im Laserlinien-Bereich aussortieren. Ähliche Probleme ergeben sich im Grünkanal. Im Vergleich dazu lässt sich im Cr-Kanal ein treffender Minimalschwellwert im Cr-Kanal ansetzen, mit dem die Laserlinie in annähernd voller Breite segmentiert wird und dabei alle anderen Pixel in der Bildspalte ausschwärzt.}\label{fig:farbwerte}
 \end{figure}
 
 \section{Messgenauigkeit}
@@ -20,7 +20,7 @@ Die Genauigkeit der Berechnung der Weltkoordinaten bestimmt wie erfolgreich das 
 In \ref{fig:MessungSlope} ist die gemessene Punktewolke der Schräge entgegengestellt. Gemessen wurden hier \(2168\) Punkte, welche im Durchschnitt \(0.9083\) Millimeter mit einer Standardabweichung \(\sigma = 0.5360\) von  der optimalen Schräge entfernt liegen. \bigbreak
 
 \begin{figure}
-\centering \includegraphics[width=\textwidth]{images/Messung.pdf}
+\centering \includegraphics[width=\textwidth]{images/MessungBig.pdf}
 \caption[Gegenüberstellung von optimaler Schräge und gemessener Punktewolke]{Gegenüberstellung von optimaler Schräge und gemessener Punktewolke}\label{fig:MessungSlope}
 \end{figure}
 
