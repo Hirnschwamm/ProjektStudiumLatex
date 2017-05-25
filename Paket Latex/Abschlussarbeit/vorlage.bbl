@@ -1,4 +1,9 @@
-\begin{thebibliography}{Zha98}
+\begin{thebibliography}{AGD07}
+
+\bibitem[AGD07]{Azad:07}
+{\sc Azad, Pedram}, {\sc Tilo Gockel} \btxandlong{}\ {\sc Rüdiger Dillmann}:
+  {\em {Computer Vision: - Das Praxisbuch}}.
+\newblock Elektor-Verlag, Aachen, 2007.
 
 \bibitem[Ebr11]{Ebrahim:11}
 {\sc Ebrahim, Mostafa A-B}: {\em 3D Laser Scanners: History, Applications and
